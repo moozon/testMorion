@@ -1,0 +1,218 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.9.278/W32 for ARM                  09/Feb/2021  19:38:24
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =  D:\Projects\Stm32\IAR\testMorion\Debug\Exe\testMorion.out
+#    Map file     =  D:\Projects\Stm32\IAR\testMorion\Debug\List\testMorion.map
+#    Command line =
+#        -f C:\Users\admin\AppData\Local\Temp\EW56B8.tmp
+#        (D:\Projects\Stm32\IAR\testMorion\Debug\Obj\main.o
+#        D:\Projects\Stm32\IAR\testMorion\Debug\Obj\startup_stm32f10x_md.o
+#        D:\Projects\Stm32\IAR\testMorion\Debug\Obj\system_stm32f10x.o
+#        --no_out_extension -o
+#        D:\Projects\Stm32\IAR\testMorion\Debug\Exe\testMorion.out --redirect
+#        _Printf=_PrintfFullNoMb --redirect _Scanf=_ScanfFullNoMb --map
+#        D:\Projects\Stm32\IAR\testMorion\Debug\List\testMorion.map --config
+#        D:\Projects\Stm32\IAR\testMorion\stm32f103x8.icf --semihosting --entry
+#        __iar_program_start "D:\Program Files\IAR Systems\Embedded Workbench
+#        8.4\arm\CMSIS\Lib\IAR\iar_cortexM3l_math.a" --vfe --text_out locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, and there are calls to deallocation functions in the
+application.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x800'0000 { ro section .intvec };
+"P1":  place in [from 0x800'0000 to 0x800'ffff] { ro };
+define block CSTACK with size = 2K, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'4fff] {
+          rw, block CSTACK, block HEAP };
+
+No sections matched the following patterns:
+
+  rw  in "P2"
+
+
+  Section   Kind         Address   Size  Object
+  -------   ----         -------   ----  ------
+"A0":                              0xec
+  .intvec   ro code   0x800'0000   0xec  startup_stm32f10x_md.o [1]
+                    - 0x800'00ec   0xec
+
+"P1":                             0x260
+  .text     ro code   0x800'00ec  0x118  system_stm32f10x.o [1]
+  .text     ro code   0x800'0204   0x1e  cmain.o [3]
+  .text     ro code   0x800'0222    0x4  low_level_init.o [2]
+  .text     ro code   0x800'0226    0x4  main.o [1]
+  .text     ro code   0x800'022a    0x4  exit.o [2]
+  .text     ro code   0x800'0230    0xa  cexit.o [3]
+  .text     ro code   0x800'023c   0x14  exit.o [4]
+  .text     ro code   0x800'0250   0x1c  cstartup_M.o [3]
+  .text     ro code   0x800'026c   0x10  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'027c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0280    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0284    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0288    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'028c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0290    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0294    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0298    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'029c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02a0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02a4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02a8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02ac    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02b0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02b4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02b8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02bc    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02c0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02c4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02c8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02cc    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02d0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02d4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02d8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02dc    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02e0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02e4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02e8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02ec    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02f0    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02f4    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02f8    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'02fc    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0300    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0304    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0308    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'030c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0310    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0314    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0318    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'031c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0320    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0324    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0328    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'032c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0330    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0334    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0338    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'033c    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0340    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0344    0x4  startup_stm32f10x_md.o [1]
+  .text     ro code   0x800'0348    0x4  startup_stm32f10x_md.o [1]
+                    - 0x800'034c  0x260
+
+"P2":                             0x800
+  CSTACK             0x2000'0000  0x800  <Block>
+    CSTACK  uninit   0x2000'0000  0x800  <Block tail>
+                   - 0x2000'0800  0x800
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+   0x800'034c   0x800'ffff  0xfcb4
+  0x2000'0800  0x2000'4fff  0x4800
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                  ro code  rw data
+    ------                  -------  -------
+command line/config:
+    ----------------------------------------
+    Total:
+
+D:\Projects\Stm32\IAR\testMorion\Debug\Obj: [1]
+    main.o                        4
+    startup_stm32f10x_md.o      460
+    system_stm32f10x.o          280
+    ----------------------------------------
+    Total:                      744
+
+dl7M_tln.a: [2]
+    exit.o                        4
+    low_level_init.o              4
+    ----------------------------------------
+    Total:                        8
+
+rt7M_tl.a: [3]
+    cexit.o                      10
+    cmain.o                      30
+    cstartup_M.o                 28
+    ----------------------------------------
+    Total:                       68
+
+shb_l.a: [4]
+    exit.o                       20
+    ----------------------------------------
+    Total:                       20
+
+    Gaps                          4
+    Linker created                     2'048
+--------------------------------------------
+    Grand Total:                844    2'048
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                     Address  Size  Type      Object
+-----                     -------  ----  ----      ------
+?main                  0x800'0205        Code  Gb  cmain.o [3]
+CSTACK$$Base          0x2000'0000         --   Gb  - Linker created -
+CSTACK$$Limit         0x2000'0800         --   Gb  - Linker created -
+Region$$Table$$Base           0x0         --   Gb  - Linker created -
+Region$$Table$$Limit          0x0         --   Gb  - Linker created -
+SetSysClock            0x800'0131   0x8  Code  Lc  system_stm32f10x.o [1]
+SetSysClockTo72        0x800'0139  0xae  Code  Lc  system_stm32f10x.o [1]
+SystemInit             0x800'00ed  0x44  Code  Gb  system_stm32f10x.o [1]
+__cmain                0x800'0205        Code  Gb  cmain.o [3]
+__exit                 0x800'023d  0x14  Code  Gb  exit.o [4]
+__iar_program_start    0x800'0251        Code  Gb  cstartup_M.o [3]
+__low_level_init       0x800'0223   0x4  Code  Gb  low_level_init.o [2]
+__vector_table         0x800'0000        Data  Gb  startup_stm32f10x_md.o [1]
+_call_main             0x800'0211        Code  Gb  cmain.o [3]
+_exit                  0x800'0231        Code  Gb  cexit.o [3]
+_main                  0x800'021b        Code  Gb  cmain.o [3]
+exit                   0x800'022b   0x4  Code  Gb  exit.o [2]
+main                   0x800'0227   0x4  Code  Gb  main.o [1]
+
+
+[1] = D:\Projects\Stm32\IAR\testMorion\Debug\Obj
+[2] = dl7M_tln.a
+[3] = rt7M_tl.a
+[4] = shb_l.a
+
+    844 bytes of readonly  code memory
+  2'048 bytes of readwrite data memory
+
+Errors: none
+Warnings: none
