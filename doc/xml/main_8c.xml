@@ -80,7 +80,7 @@
         <name>BAUDRATE</name>
         <initializer>115200</initializer>
         <briefdescription>
-<para>Скорость USART. </para>
+<para>Скорость передачи данных USART. </para>
         </briefdescription>
         <detaileddescription>
 <para>Тестовое задание: testMorion. <simplesect kind="version"><para>1.0.0</para>
@@ -99,7 +99,7 @@
 </listitem><listitem><para>Команда &quot;Stop&quot; - Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается.</para>
 </listitem><listitem><para>Приглашение пользователк в консоле к выполнению команд с примерами.</para>
 </listitem><listitem><para>Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация.</para>
-</listitem><listitem><para>Создан git репозиторий и выгружен в удаленный репозиторий на GitHub(). </para>
+</listitem><listitem><para>Создан git репозиторий и выгружен в удаленный репозиторий на GitHub(<ulink url="https://github.com/moozon/testMorion">https://github.com/moozon/testMorion</ulink>). </para>
 </listitem></orderedlist>
 </para>
         </detaileddescription>
