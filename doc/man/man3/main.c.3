@@ -35,16 +35,19 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .ti -1c
 .RI "#define \fBBAUDRATE\fP   115200"
 .br
-.RI "Тестовое задание: testMorion\&. "
+.RI "Скорость USART\&. "
 .ti -1c
 .RI "#define \fBRX_BUFFER_SIZE\fP   32"
 .br
+.RI "Размер входящего буфера USART\&. "
 .ti -1c
 .RI "#define \fBTX_BUFFER_SIZE\fP   128"
 .br
+.RI "Размер исходящего буфера USART\&. "
 .ti -1c
 .RI "#define \fBPERIOD\fP   1000"
 .br
+.RI "Максимальное значение ШИМ "
 .in -1c
 .SS "Функции"
 
@@ -60,7 +63,7 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .ti -1c
 .RI "void \fBfade\fP (uint32_t time)"
 .br
-.RI "Задает режим плавного зажегания и затухания светодиода "
+.RI "Задает режим плавного зажигания и затухания светодиода "
 .ti -1c
 .RI "void \fBloop\fP ()"
 .br
@@ -72,9 +75,11 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .ti -1c
 .RI "int \fBmain\fP ()"
 .br
+.RI "Вход в программу "
 .ti -1c
 .RI "void \fBUSART1_IRQHandler\fP (void)"
 .br
+.RI "Обработчик прерываний USART\&. "
 .in -1c
 .SS "Переменные"
 
@@ -101,7 +106,7 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .RI "TIM_OCInitTypeDef \fBtimerPWM\fP"
 .br
 .ti -1c
-.RI "uint8_t \fBtxBuffer\fP [128] = 'Hello, please enter Blink or PWM time in ms\&.:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n'"
+.RI "uint8_t \fBtxBuffer\fP [128] = 'Hello, please enter Blink or PWM time in ms\&. or Stop:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n \\'stop\\'\\n'"
 .br
 .RI "TX буфер USART\&. "
 .ti -1c
@@ -119,29 +124,29 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .ti -1c
 .RI "uint32_t \fBfadeTime\fP = 10000"
 .br
-.RI "Время плавного зажегания и затухания светодиода, используя Шим на Timer4\&. "
+.RI "Время плавного зажигания и затухания светодиода, используя Шим на Timer4\&. "
 .ti -1c
 .RI "uint8_t \fBfadeFlag\fP = 0"
 .br
 .RI "Флаг для режима Fade\&. "
 .ti -1c
-.RI "char \fBtmp1\fP [32] = {0}"
+.RI "char \fBtmp1\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .RI "Вспомогательные массивы для парсинга основного входящего массива "
 .ti -1c
-.RI "char \fBtmp2\fP [32] = {0}"
+.RI "char \fBtmp2\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .ti -1c
-.RI "char \fBtmp3\fP [32] = {0}"
+.RI "char \fBtmp3\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .ti -1c
-.RI "char \fBtmp4\fP [32] = {0}"
+.RI "char \fBtmp4\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .ti -1c
-.RI "char \fBtmp5\fP [32] = {0}"
+.RI "char \fBtmp5\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .ti -1c
-.RI "char \fBtmp6\fP [32] = {0}"
+.RI "char \fBtmp6\fP [\fBRX_BUFFER_SIZE\fP] = {0}"
 .br
 .ti -1c
 .RI "uint8_t \fBy1\fP = 0"
@@ -183,7 +188,7 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .ti -1c
 .RI "uint8_t \fBrxFlag\fP = 0"
 .br
-.RI "Флаг что пришли данные по USART\&. "
+.RI "Флаг, что пришли данные по USART\&. "
 .ti -1c
 .RI "int \fBTIM_Pulse\fP = 0"
 .br
@@ -194,7 +199,7 @@ D:/Projects/Stm32/IAR/testMorion/main.c
 .SS "#define BAUDRATE   115200"
 
 .PP
-Тестовое задание: testMorion\&. 
+Скорость USART\&. Тестовое задание: testMorion\&. 
 .PP
 \fBВерсия\fP
 .RS 4
@@ -218,7 +223,7 @@ USRAT1: TX=PA9, RX=PA10
 .IP "1." 4
 Команда 'Blink X(ms) Y(ms)' - Задает режим свечения светодиода с заданным временем включения/выключения(X/Y)\&.
 .IP "2." 4
-Команда 'Fade X(ms)' - Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4\&.
+Команда 'Fade X(ms)' - Задает режим плавного зажигания и затухания светодиода, используя Шим на Timer4\&.
 .IP "3." 4
 Команда 'Stop' - Вводит МК в режим зависания и через 10 сек\&. срабатывает таймер Watchdog(IWDG) и МК перезагружается\&.
 .IP "4." 4
@@ -226,15 +231,21 @@ USRAT1: TX=PA9, RX=PA10
 .IP "5." 4
 Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация\&.
 .IP "6." 4
-Создан git репозиторий и выгружен в удаленный репозиторий на GitHub()\&. Скорость Usart 
+Создан git репозиторий и выгружен в удаленный репозиторий на GitHub()\&. 
 .PP
 
 .SS "#define PERIOD   1000"
 
+.PP
+Максимальное значение ШИМ 
 .SS "#define RX_BUFFER_SIZE   32"
 
+.PP
+Размер входящего буфера USART\&. 
 .SS "#define TX_BUFFER_SIZE   128"
 
+.PP
+Размер исходящего буфера USART\&. 
 .SH "Функции"
 .PP 
 .SS "void blink (uint32_t timeOn, uint32_t timeOff)"
@@ -244,7 +255,7 @@ USRAT1: TX=PA9, RX=PA10
 .SS "void fade (uint32_t time)"
 
 .PP
-Задает режим плавного зажегания и затухания светодиода 
+Задает режим плавного зажигания и затухания светодиода 
 .SS "void initAll ()"
 
 .PP
@@ -255,12 +266,18 @@ USRAT1: TX=PA9, RX=PA10
 Вводит МК в режим зависания и через 10 сек\&. срабатывает таймер Watchdog(IWDG) и МК перезагружается\&. 
 .SS "int main ()"
 
+.PP
+Вход в программу Основной цикл 
+.br
+
 .SS "void parseBuffer (char * buffer)"
 
 .PP
 Парсинг приянтого по USART массива данных 
 .SS "void USART1_IRQHandler (void)"
 
+.PP
+Обработчик прерываний USART\&. 
 .SH "Переменные"
 .PP 
 .SS "DMA_InitTypeDef dma"
@@ -272,7 +289,7 @@ USRAT1: TX=PA9, RX=PA10
 .SS "uint32_t fadeTime = 10000"
 
 .PP
-Время плавного зажегания и затухания светодиода, используя Шим на Timer4\&. 
+Время плавного зажигания и затухания светодиода, используя Шим на Timer4\&. 
 .SS "NVIC_InitTypeDef nvic"
 
 .SS "GPIO_InitTypeDef portA"
@@ -286,7 +303,7 @@ RX буфер USART\&.
 .SS "uint8_t rxFlag = 0"
 
 .PP
-Флаг что пришли данные по USART\&. 
+Флаг, что пришли данные по USART\&. 
 .SS "int TIM_Pulse = 0"
 
 .PP
@@ -303,21 +320,21 @@ RX буфер USART\&.
 
 .SS "TIM_OCInitTypeDef timerPWM"
 
-.SS "char tmp1[32] = {0}"
+.SS "char tmp1[\fBRX_BUFFER_SIZE\fP] = {0}"
 
 .PP
 Вспомогательные массивы для парсинга основного входящего массива 
-.SS "char tmp2[32] = {0}"
+.SS "char tmp2[\fBRX_BUFFER_SIZE\fP] = {0}"
 
-.SS "char tmp3[32] = {0}"
+.SS "char tmp3[\fBRX_BUFFER_SIZE\fP] = {0}"
 
-.SS "char tmp4[32] = {0}"
+.SS "char tmp4[\fBRX_BUFFER_SIZE\fP] = {0}"
 
-.SS "char tmp5[32] = {0}"
+.SS "char tmp5[\fBRX_BUFFER_SIZE\fP] = {0}"
 
-.SS "char tmp6[32] = {0}"
+.SS "char tmp6[\fBRX_BUFFER_SIZE\fP] = {0}"
 
-.SS "uint8_t txBuffer[128] = 'Hello, please enter Blink or PWM time in ms\&.:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n'"
+.SS "uint8_t txBuffer[128] = 'Hello, please enter Blink or PWM time in ms\&. or Stop:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n \\'stop\\'\\n'"
 
 .PP
 TX буфер USART\&. 

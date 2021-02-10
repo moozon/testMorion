@@ -1,9 +1,9 @@
 /**
   *************************************************************************************************************************************
-  *\brief Тестовое задание: testMorion.
-  *\version 1.0.0
+  * Тестовое задание: testMorion.
+  * \version 1.0.0
   *************************************************************************************************************************************
-  *Описание:
+  * Описание:
   * - МК: STM32F103C8
   * - Светодиод подключен к пину: PB6
   * - USRAT1: TX=PA9, RX=PA10 
@@ -14,7 +14,7 @@
   *************************************************************************************************************************************
   * Реализовано:
   * 1. Команда "Blink X(ms) Y(ms)" - Задает режим свечения светодиода с заданным временем включения/выключения(X/Y). 
-  * 2. Команда "Fade X(ms)"        - Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4.
+  * 2. Команда "Fade X(ms)"        - Задает режим плавного зажигания и затухания светодиода, используя Шим на Timer4.
   * 3. Команда "Stop"              - Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается.
   * 4. Приглашение пользователк в консоле к выполнению команд с примерами. 
   * 5. Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация.
@@ -35,7 +35,7 @@
 #include "misc.h"
 
 /* Private define --------------------------------------------------------------------------------------------------------------------*/
-/// Скорость Usart
+/// Скорость USART
 #define BAUDRATE                115200
 /// Размер входящего буфера USART
 #define RX_BUFFER_SIZE          32
@@ -48,40 +48,38 @@
 /* Private variables -----------------------------------------------------------------------------------------------------------------*/
 GPIO_InitTypeDef portA;
 GPIO_InitTypeDef portB;
-//GPIO_InitTypeDef portC;
 USART_InitTypeDef usart;
 DMA_InitTypeDef dma;
 NVIC_InitTypeDef nvic;
 TIM_TimeBaseInitTypeDef timer;
 TIM_OCInitTypeDef timerPWM;
 
-
-//uint8_t inputData;
-//uint8_t outputData;
 /// TX буфер USART 
-uint8_t txBuffer[128] = "Hello, please enter Blink or PWM time in ms.:\nExamples:\n         \"blink 500 500\"\n         \"fade 500\"\n";
+uint8_t txBuffer[128] = "Hello, please enter Blink or PWM time in ms. or Stop:\nExamples:\n         \"blink 500 500\"\n         \"fade 500\"\n         \"stop\"\n";
+
 /// RX буфер USART
 char rxBuffer[RX_BUFFER_SIZE];
-//char tmprxBuffer[RX_BUFFER_SIZE];
+
 /// Временя свечения светодиода
-uint32_t time1 = 5000000;                       
+uint32_t time1 = 5000000;      
+
 /// Время НЕ свечения светодиода
 uint32_t time2 = 5000000;    
-/// Время плавного зажегания и затухания светодиода, используя Шим на Timer4.
+
+/// Время плавного зажигания и затухания светодиода, используя Шим на Timer4.
 uint32_t fadeTime = 10000;                      
-//char _time1[4];
-//char _time2[4];
-//uint32_t index = 0;
+
 /// Флаг для режима Fade
-uint8_t fadeFlag = 0;                           
-//uint8_t rx_counter = 0;
+uint8_t fadeFlag = 0;   
+
 /// Вспомогательные массивы для парсинга основного входящего массива
-char tmp1[32] = {0};                            
-char tmp2[32] = {0};                            
-char tmp3[32] = {0};                            
-char tmp4[32] = {0};                                 
-char tmp5[32] = {0};                            
-char tmp6[32] = {0};                            
+char tmp1[RX_BUFFER_SIZE] = {0};                            
+char tmp2[RX_BUFFER_SIZE] = {0};                            
+char tmp3[RX_BUFFER_SIZE] = {0};                            
+char tmp4[RX_BUFFER_SIZE] = {0};                                 
+char tmp5[RX_BUFFER_SIZE] = {0};                            
+char tmp6[RX_BUFFER_SIZE] = {0};  
+
 ///  Вспомогательные переменные для парсинга основного входящего массива
 uint8_t y1 = 0;                                 
 uint8_t y2 = 0;                                 
@@ -94,39 +92,48 @@ int x2 = 0;
 int x3 = 0;                                     
 int x4 = 0;                                     
 int x5 = 0;                                     
-int x6 = 0;                                     
-//uint8_t flagBuf = 0;
-//uint8_t itFlag = 0;
-/// Флаг что пришли данные по USART
+int x6 = 0;  
+
+/// Флаг, что пришли данные по USART
 uint8_t rxFlag = 0;       
+
 /// Значение ШИМ
 int TIM_Pulse = 0;                              
 
 
 /* Private function prototypes ---------------------------------------------------------------------------------------------------------*/
+
 /// Инициализация всей периферии
 void initAll();
+
 /// Задает режим свечения светодиода с заданным временем включения/выключения
 void blink(uint32_t timeOn, uint32_t timeOff);
-/// Задает режим плавного зажегания и затухания светодиода
+
+/// Задает режим плавного зажигания и затухания светодиода
 void fade(uint32_t time);
+
 /// Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается.
 void loop();
-//void usartDmaReceive();
+
 /// Парсинг приянтого по USART массива данных
 void parseBuffer(char *buffer);
 
 
-
+/// Вход в программу
 int main()
 {
+  /* Разрешить прерывания IRQ */
    __enable_irq();
+   
+  /* Инициализация всей периферии */ 
     initAll();    
+    
    /* Ждем пока завершится передача данных по USART */
   while (DMA_GetFlagStatus(USART1_Tx_DMA_FLAG) == RESET)
   {
   }
-      
+  
+  /// Основной цикл     
   while (1)
   {   
     /* Если есть принятные по USART данные, то обрабатываем их */
@@ -153,120 +160,93 @@ void initAll()
   /* Включение тактирования периферии*/
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-  //RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);  
   
-  
-  /* Инициализация DMA */ 
-  
+  /* Инициализация DMA */   
   DMA_StructInit(&dma);  
+     
+  /* Инициализация DMA для USART TX */ 
+  DMA_DeInit(DMA1_Channel4);                                    // Выбор канала Dma
+  dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART1->DR);         // Указываем адрес регистра данных USART 
+  dma.DMA_MemoryBaseAddr = (uint32_t)txBuffer;                  // Указываем буфер, куда писать данные из памяти     
+  dma.DMA_BufferSize = TX_BUFFER_SIZE;                          // Размер буфера
+  dma.DMA_DIR = DMA_DIR_PeripheralDST;                          // Направление передачи данных(из памяти в USART)
+  dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;            // Инкрементирование адреса в USART выключено    
+  dma.DMA_MemoryInc = DMA_MemoryInc_Enable;                     // Инкрементирование адреса в памяти включено
+  dma.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;     // Размер обработки данных в USART
+  dma.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;             // Размер обработки данных в памяти
+  dma.DMA_Mode = DMA_Mode_Normal;                               // Режим работы DMA
+  dma.DMA_M2M = DMA_M2M_Disable;                                // Режим M2M выключен
+  dma.DMA_Priority = DMA_Priority_High;                         // Приоритет высокий
+  DMA_Init(DMA1_Channel4, &dma);                                // Инициализация DMA
   
-   /* USART DMA TX init */
+  /* Инициализация DMA для USART RX */  
+  DMA_DeInit(DMA1_Channel5);                                    // Выбор канала Dma
+  dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART1->DR);         // Указываем адрес регистра данных USART 
+  dma.DMA_MemoryBaseAddr = (uint32_t)rxBuffer;                  // Указываем буфер, куда писать данные из памяти
+  dma.DMA_BufferSize = RX_BUFFER_SIZE;                          // Размер буфера
+  dma.DMA_DIR = DMA_DIR_PeripheralSRC;                          // Направление передачи данных(из USART в память)
+  dma.DMA_Mode = DMA_Mode_Circular;                             // Режим работы DMA
+  DMA_Init(DMA1_Channel5, &dma);                                // Инициализация DMA
   
-  DMA_DeInit(DMA1_Channel4);
-  dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART1->DR);
-  dma.DMA_MemoryBaseAddr = (uint32_t)txBuffer;
-  dma.DMA_BufferSize = TX_BUFFER_SIZE;
-  dma.DMA_DIR = DMA_DIR_PeripheralDST;  
-  dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-  dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
-  dma.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-  dma.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-  //dma.DMA_Mode = DMA_Mode_Circular;
-  dma.DMA_Mode = DMA_Mode_Normal;
-  dma.DMA_M2M = DMA_M2M_Disable;
-  dma.DMA_Priority = DMA_Priority_High;  
-  DMA_Init(DMA1_Channel4, &dma);  
+  /* Инициализация GPIO */  
+  GPIO_StructInit(&portB);                                      
+  portB.GPIO_Mode = GPIO_Mode_Out_PP;                           // Режим работы пина - push-pull
+  portB.GPIO_Pin = GPIO_Pin_6;                                  // Номер пииа для подключения светодиода
+  portB.GPIO_Speed = GPIO_Speed_50MHz;                          // Частота тактирования порта
+  GPIO_Init(GPIOB, &portB);                                     //
   
-  /* USART DMA RX init */
-  
-  DMA_DeInit(DMA1_Channel5);
-  dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART1->DR);
-  dma.DMA_MemoryBaseAddr = (uint32_t)rxBuffer;
-  dma.DMA_BufferSize = RX_BUFFER_SIZE;
-  dma.DMA_DIR = DMA_DIR_PeripheralSRC;  
-  //dma.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-  //dma.DMA_MemoryInc = DMA_MemoryInc_Enable;
-  //dma.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;
-  //dma.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
-  dma.DMA_Mode = DMA_Mode_Circular;
-  //dma.DMA_Mode = DMA_Mode_Normal;
-  //dma.DMA_M2M = DMA_M2M_Disable;
-  //dma.DMA_Priority = DMA_Priority_High;  
-  DMA_Init(DMA1_Channel5, &dma);  
-  
-  
-  
-    
-  
-  /* Инициализация GPIO */
-  
-  GPIO_StructInit(&portB);  
-  portB.GPIO_Mode = GPIO_Mode_Out_PP;
-  //portB.GPIO_Mode = GPIO_Mode_AF_PP;
-  portB.GPIO_Pin = GPIO_Pin_6;
-  portB.GPIO_Speed = GPIO_Speed_50MHz;
-  GPIO_Init(GPIOB, &portB);
-  
-  portA.GPIO_Pin = USART1_TxPin;
-  portA.GPIO_Speed = GPIO_Speed_50MHz;
-  portA.GPIO_Mode = GPIO_Mode_AF_PP;
+  portA.GPIO_Pin = USART1_TxPin;                                // Tx пин
+  portA.GPIO_Speed = GPIO_Speed_50MHz;                          // Частота тактирования порта     
+  portA.GPIO_Mode = GPIO_Mode_AF_PP;                            // Режим работы пина - альтернативная функция, push-pull
   GPIO_Init(USART1_GPIO, &portA);
   
-  portA.GPIO_Pin = USART1_RxPin;
-  portA.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-  GPIO_Init(USART1_GPIO, &portA);  
+  portA.GPIO_Pin = USART1_RxPin;                                // Rx пин
+  portA.GPIO_Mode = GPIO_Mode_IN_FLOATING;                      // Режим работы пина - плавающий вход 
+  GPIO_Init(USART1_GPIO, &portA);    
   
-  
-  /* Инициализация NVIC */
-  
-  nvic.NVIC_IRQChannel = USART1_IRQn;
-  nvic.NVIC_IRQChannelPreemptionPriority = 0;
-  nvic.NVIC_IRQChannelSubPriority = 0;
-  nvic.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&nvic);
-  //NVIC_EnableIRQ(DMA1_Channel5_IRQn); //Dma interrupts Enable
-  
+  /* Инициализация NVIC */  
+  nvic.NVIC_IRQChannel = USART1_IRQn;                           // Канал прерываний USART1
+  nvic.NVIC_IRQChannelPreemptionPriority = 0;                   // Приоритет 1
+  nvic.NVIC_IRQChannelSubPriority = 0;                          // Приоритет 2
+  nvic.NVIC_IRQChannelCmd = ENABLE;                             // Включение прерываний на канале
+  NVIC_Init(&nvic);  
       
-  /* Инициализация USART */
-  
+  /* Инициализация USART1 */  
   USART_StructInit(&usart);
-  usart.USART_BaudRate = BAUDRATE;
-  usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+  usart.USART_BaudRate = BAUDRATE;                              // Скорость передачи данных USART
+  usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;             // Режим работы USART TX+RX
   USART_Init(USART1, &usart);
-  USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //Usart RXNE interrupts Enable
+  USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);                // Включение прерывание по событию RXNE (Входящий регистр не пустой)  
   
-  
-  /* Инициализация Timer */
-  
-  TIM_TimeBaseStructInit(&timer);
-  timer.TIM_Prescaler = 720;
-  timer.TIM_Period = PERIOD;
-  timer.TIM_ClockDivision = 0;
-  timer.TIM_CounterMode = TIM_CounterMode_Up;
+  /* Инициализация Timer4 */
+  TIM_TimeBaseStructInit(&timer);                               
+  timer.TIM_Prescaler = 720;                                    // Предделитель таймера
+  timer.TIM_Period = PERIOD;                                    // Период 
+  timer.TIM_ClockDivision = 0;                                  // Деление частоты не используется
+  timer.TIM_CounterMode = TIM_CounterMode_Up;                   // Режим счета таймера - прямой
   TIM_TimeBaseInit(TIM4, &timer);
-
+  
+  /* Инициализация ШИМ */
   TIM_OCStructInit(&timerPWM);
-  timerPWM.TIM_OCMode = TIM_OCMode_PWM1;
-  timerPWM.TIM_OutputState = TIM_OutputState_Enable;
-  timerPWM.TIM_Pulse = 10;
-  timerPWM.TIM_OCPolarity = TIM_OCPolarity_High;
+  timerPWM.TIM_OCMode = TIM_OCMode_PWM1;                        // Режим работы ШИМ
+  timerPWM.TIM_OutputState = TIM_OutputState_Enable;            // Включаем генерацию ШИМ
+  timerPWM.TIM_Pulse = 10;                                      // Время сигнала
+  timerPWM.TIM_OCPolarity = TIM_OCPolarity_High;                // Полярность сигнала - Положителная
   TIM_OC1Init(TIM4, &timerPWM);
 
-  /* Инициализация Timer Watchdog */
-  
+  /* Инициализация Watchdog */  
   RCC_LSICmd(ENABLE);
   while (RCC_GetFlagStatus(RCC_FLAG_LSIRDY) == RESET);
-  IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);
-  IWDG_SetPrescaler(IWDG_Prescaler_256);
-  IWDG_SetReload(1562);
-  IWDG_ReloadCounter();
-  IWDG_Enable();  
+  IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);                 // Разрешаем запись в регистр сброса
+  IWDG_SetPrescaler(IWDG_Prescaler_256);                        // Установка предделителя таймера Watchdog        
+  IWDG_SetReload(1562);                                         // Установка таймера Watchdog на 10 сек. (40000/256*10)
+  IWDG_ReloadCounter();                                         // Сбрасываем таймер Watchdog
+  IWDG_Enable();                                                // Включаем Watchdog
   
-  /* Включение периферии */
-  
+  /* Включение периферии */  
   USART_DMACmd(USART1, USART_DMAReq_Tx | USART_DMAReq_Rx, ENABLE);  
   DMA_Cmd(DMA1_Channel4, ENABLE);
   DMA_ITConfig(DMA1_Channel5, DMA_IT_TC, ENABLE);
@@ -277,20 +257,20 @@ void initAll()
 }
 
 void parseBuffer(char *buffer)
-{
-  char cmd[5] = {0};  
-  
+{  
+  /* Находим название команды во входящем буфере */
+  char cmd[5] = {0};
   for (uint8_t i = 0; i < 5; i++)
   {
     cmd[i] = buffer[i];
-    //for(int j = 0; j < 100; j++);
   }
   
   // Blink
   if (strncmp(cmd, "blink", 5) == 0)
-  {   
+  {       
+    /* Находим значения времени свечения светодиода во входящем буфере и записываем их в переменные*/
     x3 = strcspn(buffer," ");
-    for(int x = x3 + 1 ; x < 32; x++)
+    for(int x = x3 + 1 ; x < RX_BUFFER_SIZE; x++)
     {      
       tmp1[y1] = buffer[x];
       y1++;  
@@ -298,7 +278,6 @@ void parseBuffer(char *buffer)
     y1 = 0;
     
     x2 = strcspn(tmp1," ");
-    //x2 = (int)strchr(tmp3, '%');
     for(int x = 0; x < x2; x++)
     {
       tmp2[y2] = tmp1[x];
@@ -306,7 +285,7 @@ void parseBuffer(char *buffer)
     }    
     y2 = 0;
     
-    for(int x = x2 + 1; x < 32; x++)
+    for(int x = x2 + 1; x < RX_BUFFER_SIZE; x++)
     {
       tmp3[y3] = tmp1[x];
       y3++;
@@ -321,32 +300,33 @@ void parseBuffer(char *buffer)
     }   
     y4 = 0;
     
+    /* Проверка на пустое значение, когда указан только один параметр команды "Blink"*/
     if (tmp2[0] != 0){    
     time1 = (uint32_t)atoi(tmp2)*10000;
     }
     if (tmp4[0] != 0){ 
     time2 = (uint32_t)atoi(tmp4)*10000;
-    }
+    }    
+    /* Очистка временных буферов*/
     memset(tmp1, 0, sizeof(tmp1));
     memset(tmp2, 0, sizeof(tmp2));
     memset(tmp3, 0, sizeof(tmp3));
     memset(tmp4, 0, sizeof(tmp4));
    
+    /* Говорим, что нужно включить режим "Blink"*/
     fadeFlag = 0; 
     
-    //GPIO_StructInit(&portB);
+    /* Переключение режима работы вывода для режима "Blink"*/
     portB.GPIO_Mode = GPIO_Mode_Out_PP;
-    //portB.GPIO_Mode = GPIO_Mode_AF_PP;
-    //portB.GPIO_Pin = GPIO_Pin_6;
-    //portB.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &portB);
 
   }
   // Fade
   if (strncmp(cmd,"fade", 4) == 0)
   {  
+    /* Находим значение ШИМ во входящем буфере и записываем его в переменную*/
     x5 = strcspn(buffer," ");
-    for(int x = x5 + 1 ; x < 32; x++)
+    for(int x = x5 + 1 ; x < RX_BUFFER_SIZE; x++)
     {      
       tmp5[y5] = buffer[x];
       y5++;  
@@ -361,19 +341,18 @@ void parseBuffer(char *buffer)
     }    
     y6 = 0;
     
+    /* Запись значения ШИМ в переменную*/
     fadeTime = (uint32_t)atoi(tmp6)*10;
     
+    /* Очистка временных буферов*/
     memset(tmp5, 0, sizeof(tmp5));
     memset(tmp6, 0, sizeof(tmp6));
     
-    
+    /* Говорим, что нужно включить режим "Fade"*/
     fadeFlag = 1;
     
-    //GPIO_StructInit(&portB);
-    //portB.GPIO_Mode = GPIO_Mode_Out_PP;
+    /* Переключение режима работы вывода для работы ШИМ*/
     portB.GPIO_Mode = GPIO_Mode_AF_PP;
-    //portB.GPIO_Pin = GPIO_Pin_6;
-    //portB.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_Init(GPIOB, &portB);
   }
   // Stop
@@ -382,64 +361,45 @@ void parseBuffer(char *buffer)
     loop();
   }
   
-  
+  /* Очистка входящего буфера */
   memset(rxBuffer, 0, sizeof(rxBuffer));
+  
+  /* Говорим, что входящий буфер обработан*/
   rxFlag = 0;
+  
+  /* Включение ранее отключенного прерывания USART*/
   USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
 }
-
+/// Обработчик прерываний USART
 void USART1_IRQHandler(void)
 {
- 
-//  if (USART_GetFlagStatus(USART1,USART_FLAG_ORE) != RESET)
-//    {
-//      parseBuffer(rxBuffer);
-//    }
-//  if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
-//    {
-//      parseBuffer(rxBuffer);
-//    }
-
+  /* Выключение прерывания USART, чтобы исключить ложное срабатывание*/
   USART_ITConfig(USART1, USART_IT_RXNE, DISABLE);
-  //parseBuffer(rxBuffer);
+  
+  /* Говорим, что пришли данные по USART и их нужно обработать*/
   rxFlag = 1;
   
+  /* Задержка, чтобы предотвратить прием "битых" данных */
   for(int j = 0; j < 100000; j++);
   
+  /* Переинициализация DMA, для того, чтобы при очередном приеме, данные из памяти записывались в начало входящего буфера*/  
   DMA_Cmd(DMA1_Channel5, DISABLE);
   dma.DMA_PeripheralBaseAddr = (uint32_t)&(USART1->DR);
   dma.DMA_MemoryBaseAddr = (uint32_t)rxBuffer;
   dma.DMA_BufferSize = TX_BUFFER_SIZE;
   DMA_Init(DMA1_Channel5, &dma);  
   DMA_Cmd(DMA1_Channel5, ENABLE);
-  
-  //USART_ReceiveData(USART1);
-  
-  //usartDmaReceive();
-  //if ( USART_GetITStatus(USART1, USART_IT_RXNE) == RESET ) {
-  //DMA_GetITStatus(DMA1_IT
-//  if (USART1->SR & USART_SR_RXNE){
-//  parseBuffer(rxBuffer);
-//        USART_ClearFlag(USART1, USART_FLAG_RXNE);
-//        USART_ClearFlag(USART1, USART_FLAG_ORE);
-//        USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-//        USART_ClearITPendingBit(USART1, USART_IT_ORE);
-//        //USART_DMACmd(USART1, USART_DMAReq_Rx, ENABLE);
-//    };
-//  
-  //USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-  //USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-//  USART_DMACmd(USART1, USART_DMAReq_Rx, ENABLE);
-  
-
-
 }
 
 void blink(uint32_t timeOn, uint32_t timeOff)
 {
   uint32_t i;
+  
+  /* Светодиод включен*/
   GPIOB->ODR |= GPIO_Pin_6;   
-  for(i = 0; i < timeOn; i++);    
+  for(i = 0; i < timeOn; i++); 
+  
+  /* Светодиод выключен*/
   GPIOB->ODR &= ~GPIO_Pin_6;
   for(i = 0; i < timeOff; i++);
 }
@@ -447,18 +407,22 @@ void blink(uint32_t timeOn, uint32_t timeOff)
 void fade(uint32_t time)
 {
   int i;
-      for (i = 0; i < PERIOD; i++)
-      {
-        TIM4->CCR1 = i;
-        for(int j = 0; j < time; j++);
-      }
-      for (i = PERIOD; i > 0; i--)
-      {
-        TIM4->CCR1 = i;
-        for(int j = 0; j < time; j++);
-      }
+  
+  /* Плавное включение светодиода*/
+  for (i = 0; i < PERIOD; i++)
+  {        
+    TIM4->CCR1 = i;
+    for(int j = 0; j < time; j++);
+  }
+  /* Плавное выключение светодиода*/
+  for (i = PERIOD; i > 0; i--)
+  {
+    TIM4->CCR1 = i;
+    for(int j = 0; j < time; j++);
+  }
 }
 void loop()
 {
+  /* Бесконечный цикл для срабатывания таймера Watchdog*/
   while(1);
 }

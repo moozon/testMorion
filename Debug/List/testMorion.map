@@ -1,12 +1,12 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.50.9.278/W32 for ARM                  10/Feb/2021  10:55:00
+# IAR ELF Linker V8.50.9.278/W32 for ARM                  10/Feb/2021  14:59:25
 # Copyright 2007-2020 IAR Systems AB.
 #
 #    Output file  =  D:\Projects\Stm32\IAR\testMorion\Debug\Exe\testMorion.out
 #    Map file     =  D:\Projects\Stm32\IAR\testMorion\Debug\List\testMorion.map
 #    Command line =
-#        -f C:\Users\admin\AppData\Local\Temp\EW4130.tmp
+#        -f C:\Users\admin\AppData\Local\Temp\EWD9C.tmp
 #        (D:\Projects\Stm32\IAR\testMorion\Debug\Obj\main.o
 #        D:\Projects\Stm32\IAR\testMorion\Debug\Obj\misc.o
 #        D:\Projects\Stm32\IAR\testMorion\Debug\Obj\startup_stm32f10x_md.o
@@ -64,7 +64,7 @@ initialize by copy { rw };
   .intvec            ro code   0x800'0000    0xec  startup_stm32f10x_md.o [1]
                              - 0x800'00ec    0xec
 
-"P1":                                      0x140a
+"P1":                                      0x141c
   .text              ro code   0x800'00ec   0x5d6  main.o [1]
   .text              ro code   0x800'06c2    0x3a  zero_init3.o [3]
   .text              ro code   0x800'06fc   0x1f0  stm32f10x_dma.o [1]
@@ -147,8 +147,8 @@ initialize by copy { rw };
   .text              ro code   0x800'1478     0x4  startup_stm32f10x_md.o [1]
   .rodata            const     0x800'147c     0x0  zero_init3.o [3]
   .rodata            const     0x800'147c     0x0  packbits_init_single.o [3]
-  Initializer bytes  const     0x800'147c    0x7a  <for P2-1>
-                             - 0x800'14f6  0x140a
+  Initializer bytes  const     0x800'147c    0x8c  <for P2-1>
+                             - 0x800'1508  0x141c
 
 "P2", part 1 of 3:                           0xa0
   P2-1                        0x2000'0000    0xa0  <Init block>
@@ -199,7 +199,7 @@ Unused ranges:
 
          From           To    Size
          ----           --    ----
-   0x800'14f6   0x800'ffff  0xeb0a
+   0x800'1508   0x800'ffff  0xeaf8
   0x2000'0a00  0x2000'4fff  0x4600
 
 
@@ -214,8 +214,8 @@ Zero (__iar_zero_init3)
           0x2000'00a0  0x160
 
 Copy/packbits (__iar_packbits_init_single3)
-    1 source range, total size 0x7a (76% of destination):
-           0x800'147c   0x7a
+    1 source range, total size 0x8c (87% of destination):
+           0x800'147c   0x8c
     1 destination range, total size 0xa0:
           0x2000'0000   0xa0
 
@@ -232,18 +232,18 @@ command line/config:
     Total:
 
 D:\Projects\Stm32\IAR\testMorion\Debug\Obj: [1]
-    main.o                    1'494      130      492
+    main.o                    1'494      146      492
     misc.o                      112
     startup_stm32f10x_md.o      456
     stm32f10x_dma.o             496
     stm32f10x_gpio.o            208
     stm32f10x_iwdg.o             56
-    stm32f10x_rcc.o             372       16       20
+    stm32f10x_rcc.o             372       18       20
     stm32f10x_tim.o             420
     stm32f10x_usart.o           360
     system_stm32f10x.o          280
     -------------------------------------------------
-    Total:                    4'254      146      512
+    Total:                    4'254      164      512
 
 dl7M_tln.a: [2]
     exit.o                        4
@@ -274,7 +274,7 @@ shb_l.a: [4]
     Gaps                          4
     Linker created                        32    2'048
 -----------------------------------------------------
-    Grand Total:              5'108      258    2'560
+    Grand Total:              5'108      276    2'560
 
 
 *******************************************************************************
@@ -395,7 +395,7 @@ y6                      0x2000'01fe    0x1  Data  Gb  main.o [1]
 [4] = shb_l.a
 
   5'108 bytes of readonly  code memory
-    258 bytes of readonly  data memory
+    276 bytes of readonly  data memory
   2'560 bytes of readwrite data memory
 
 Errors: none

@@ -15,13 +15,13 @@
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{main_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}~115200
-\begin{DoxyCompactList}\small\item\em Тестовое задание\+: test\+Morion. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Скорость USART. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}~32
-\item 
+\begin{DoxyCompactList}\small\item\em Размер входящего буфера USART. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_a9ab33647617098646990fe263600b650}{TX\+\_\+\+BUFFER\+\_\+\+SIZE}}~128
-\item 
+\begin{DoxyCompactList}\small\item\em Размер исходящего буфера USART. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{main_8c_af281425e62298bac2df0fbe8690a4844}{PERIOD}}~1000
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Максимальное значение ШИМ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
@@ -30,15 +30,15 @@ void \mbox{\hyperlink{main_8c_af92e16b8081e002c83c30ea3059bd9dc}{init\+All}} ()
 void \mbox{\hyperlink{main_8c_aea2c4db5a3720489327d7a5cbf0cedc2}{blink}} (uint32\+\_\+t time\+On, uint32\+\_\+t time\+Off)
 \begin{DoxyCompactList}\small\item\em Задает режим свечения светодиода с заданным временем включения/выключения \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a3974a02b903706928212b901e62125f6}{fade}} (uint32\+\_\+t time)
-\begin{DoxyCompactList}\small\item\em Задает режим плавного зажегания и затухания светодиода \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Задает режим плавного зажигания и затухания светодиода \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
 \begin{DoxyCompactList}\small\item\em Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(\+IWDG) и МК перезагружается. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}{parse\+Buffer}} (char $\ast$buffer)
 \begin{DoxyCompactList}\small\item\em Парсинг приянтого по USART массива данных \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Вход в программу \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}{USART1\+\_\+\+IRQHandler}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Обработчик прерываний USART. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Переменные}
 \begin{DoxyCompactItemize}
 \item 
@@ -56,7 +56,7 @@ TIM\+\_\+\+Time\+Base\+Init\+Type\+Def \mbox{\hyperlink{main_8c_a88d009b20d08c8a
 \item 
 TIM\+\_\+\+OCInit\+Type\+Def \mbox{\hyperlink{main_8c_accdeee591142c25efa533931fac28dfa}{timer\+PWM}}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{main_8c_a83c1a2855e7499808c8d28370b7b90f5}{tx\+Buffer}} \mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms.\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a83c1a2855e7499808c8d28370b7b90f5}{tx\+Buffer}} \mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms. or Stop\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}stop\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}
 \begin{DoxyCompactList}\small\item\em TX буфер USART. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{main_8c_a52965a1c4f6d34e3a0afaa0133a8754e}{rx\+Buffer}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
 \begin{DoxyCompactList}\small\item\em RX буфер USART. \end{DoxyCompactList}\item 
@@ -65,20 +65,20 @@ uint32\+\_\+t \mbox{\hyperlink{main_8c_a7889f4d558b0539240873a7c41a3d1ab}{time1}
 uint32\+\_\+t \mbox{\hyperlink{main_8c_a03a3f0896a00fef03582fef9b48f978e}{time2}} = 5000000
 \begin{DoxyCompactList}\small\item\em Время НЕ свечения светодиода \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{main_8c_aec6e9ae1ccec2a3b356f0e817b6a386d}{fade\+Time}} = 10000
-\begin{DoxyCompactList}\small\item\em Время плавного зажегания и затухания светодиода, используя Шим на Timer4. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Время плавного зажигания и затухания светодиода, используя Шим на Timer4. \end{DoxyCompactList}\item 
 uint8\+\_\+t \mbox{\hyperlink{main_8c_a17be409d95593b3ff983cd52f7053856}{fade\+Flag}} = 0
 \begin{DoxyCompactList}\small\item\em Флаг для режима Fade. \end{DoxyCompactList}\item 
-char \mbox{\hyperlink{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}{tmp1}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_ab5b09d2c13dd6110d2a0d31540b4638b}{tmp1}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \begin{DoxyCompactList}\small\item\em Вспомогательные массивы для парсинга основного входящего массива \end{DoxyCompactList}\item 
-char \mbox{\hyperlink{main_8c_adc791551c9d09221f1c21565dfce4f7c}{tmp2}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_ad8d8f6931163de1175954d3d6bf161e4}{tmp2}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \item 
-char \mbox{\hyperlink{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}{tmp3}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_a39d165c2d4c11dea2432f7db3429afc6}{tmp3}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \item 
-char \mbox{\hyperlink{main_8c_ae583fa991719680e6199202b8e9c2fd2}{tmp4}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_a565ee840f022adb4e8bbb72cb8e5a76c}{tmp4}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \item 
-char \mbox{\hyperlink{main_8c_ad691a0d415853a7a2500332d7f2b48a8}{tmp5}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_a04e054f0d14aad897399fccf8952b81d}{tmp5}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \item 
-char \mbox{\hyperlink{main_8c_a966ae3498f573763f29f14aca9e5eefc}{tmp6}} \mbox{[}32\mbox{]} = \{0\}
+char \mbox{\hyperlink{main_8c_ae292f899f9ab613a28655f8490b9865a}{tmp6}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}
 \item 
 uint8\+\_\+t \mbox{\hyperlink{main_8c_af2a4bde7e1b01cf2f420295ee22cf94f}{y1}} = 0
 \begin{DoxyCompactList}\small\item\em Вспомогательные переменные для парсинга основного входящего массива \end{DoxyCompactList}\item 
@@ -105,7 +105,7 @@ int \mbox{\hyperlink{main_8c_a7d5a341a216c953859a79c5394ee48f7}{x5}} = 0
 int \mbox{\hyperlink{main_8c_aa757a3cd35f48b567f130d053e8726df}{x6}} = 0
 \item 
 uint8\+\_\+t \mbox{\hyperlink{main_8c_ab98e83e7f7f87cc85f707630dc708703}{rx\+Flag}} = 0
-\begin{DoxyCompactList}\small\item\em Флаг что пришли данные по USART. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Флаг, что пришли данные по USART. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse}} = 0
 \begin{DoxyCompactList}\small\item\em Значение ШИМ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -119,9 +119,9 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 
 
 
-Тестовое задание\+: test\+Morion. 
+Скорость USART. 
 
-\begin{DoxyVersion}{Версия}
+Тестовое задание\+: test\+Morion. \begin{DoxyVersion}{Версия}
 1.\+0.\+0
 \end{DoxyVersion}
 Описание\+:
@@ -137,16 +137,20 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 Реализовано\+:
 \begin{DoxyEnumerate}
 \item Команда \char`\"{}\+Blink X(ms) Y(ms)\char`\"{} -\/ Задает режим свечения светодиода с заданным временем включения/выключения(X/Y).
-\item Команда \char`\"{}\+Fade X(ms)\char`\"{} -\/ Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4.
+\item Команда \char`\"{}\+Fade X(ms)\char`\"{} -\/ Задает режим плавного зажигания и затухания светодиода, используя Шим на Timer4.
 \item Команда \char`\"{}\+Stop\char`\"{} -\/ Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(\+IWDG) и МК перезагружается.
 \item Приглашение пользователк в консоле к выполнению команд с примерами.
 \item Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация.
-\item Создан git репозиторий и выгружен в удаленный репозиторий на Git\+Hub(). Скорость Usart 
+\item Создан git репозиторий и выгружен в удаленный репозиторий на Git\+Hub(). 
 \end{DoxyEnumerate}\mbox{\Hypertarget{main_8c_af281425e62298bac2df0fbe8690a4844}\label{main_8c_af281425e62298bac2df0fbe8690a4844}} 
 \index{main.c@{main.c}!PERIOD@{PERIOD}}
 \index{PERIOD@{PERIOD}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{PERIOD}{PERIOD}}
 {\footnotesize\ttfamily \#define PERIOD~1000}
+
+
+
+Максимальное значение ШИМ 
 
 \mbox{\Hypertarget{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}\label{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}} 
 \index{main.c@{main.c}!RX\_BUFFER\_SIZE@{RX\_BUFFER\_SIZE}}
@@ -154,11 +158,19 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 \doxysubsubsection{\texorpdfstring{RX\_BUFFER\_SIZE}{RX\_BUFFER\_SIZE}}
 {\footnotesize\ttfamily \#define RX\+\_\+\+BUFFER\+\_\+\+SIZE~32}
 
+
+
+Размер входящего буфера USART. 
+
 \mbox{\Hypertarget{main_8c_a9ab33647617098646990fe263600b650}\label{main_8c_a9ab33647617098646990fe263600b650}} 
 \index{main.c@{main.c}!TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}}
 \index{TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{TX\_BUFFER\_SIZE}{TX\_BUFFER\_SIZE}}
 {\footnotesize\ttfamily \#define TX\+\_\+\+BUFFER\+\_\+\+SIZE~128}
+
+
+
+Размер исходящего буфера USART. 
 
 
 
@@ -181,7 +193,7 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 
 
 
-Задает режим плавного зажегания и затухания светодиода 
+Задает режим плавного зажигания и затухания светодиода 
 
 \mbox{\Hypertarget{main_8c_af92e16b8081e002c83c30ea3059bd9dc}\label{main_8c_af92e16b8081e002c83c30ea3059bd9dc}} 
 \index{main.c@{main.c}!initAll@{initAll}}
@@ -209,6 +221,11 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 \doxysubsubsection{\texorpdfstring{main()}{main()}}
 {\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Вход в программу 
+
+Основной цикл ~\newline
 \mbox{\Hypertarget{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}\label{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}} 
 \index{main.c@{main.c}!parseBuffer@{parseBuffer}}
 \index{parseBuffer@{parseBuffer}!main.c@{main.c}}
@@ -224,6 +241,10 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 \index{USART1\_IRQHandler@{USART1\_IRQHandler}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{USART1\_IRQHandler()}{USART1\_IRQHandler()}}
 {\footnotesize\ttfamily void USART1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Обработчик прерываний USART. 
 
 
 
@@ -252,7 +273,7 @@ int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse
 
 
 
-Время плавного зажегания и затухания светодиода, используя Шим на Timer4. 
+Время плавного зажигания и затухания светодиода, используя Шим на Timer4. 
 
 \mbox{\Hypertarget{main_8c_af0658b49b677e42e55cc005f80c011f2}\label{main_8c_af0658b49b677e42e55cc005f80c011f2}} 
 \index{main.c@{main.c}!nvic@{nvic}}
@@ -290,7 +311,7 @@ RX буфер USART.
 
 
 
-Флаг что пришли данные по USART. 
+Флаг, что пришли данные по USART. 
 
 \mbox{\Hypertarget{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}\label{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}} 
 \index{main.c@{main.c}!TIM\_Pulse@{TIM\_Pulse}}
@@ -334,51 +355,51 @@ RX буфер USART.
 \doxysubsubsection{\texorpdfstring{timerPWM}{timerPWM}}
 {\footnotesize\ttfamily TIM\+\_\+\+OCInit\+Type\+Def timer\+PWM}
 
-\mbox{\Hypertarget{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}\label{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}} 
+\mbox{\Hypertarget{main_8c_ab5b09d2c13dd6110d2a0d31540b4638b}\label{main_8c_ab5b09d2c13dd6110d2a0d31540b4638b}} 
 \index{main.c@{main.c}!tmp1@{tmp1}}
 \index{tmp1@{tmp1}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp1}{tmp1}}
-{\footnotesize\ttfamily char tmp1\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp1\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
 
 
 Вспомогательные массивы для парсинга основного входящего массива 
 
-\mbox{\Hypertarget{main_8c_adc791551c9d09221f1c21565dfce4f7c}\label{main_8c_adc791551c9d09221f1c21565dfce4f7c}} 
+\mbox{\Hypertarget{main_8c_ad8d8f6931163de1175954d3d6bf161e4}\label{main_8c_ad8d8f6931163de1175954d3d6bf161e4}} 
 \index{main.c@{main.c}!tmp2@{tmp2}}
 \index{tmp2@{tmp2}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp2}{tmp2}}
-{\footnotesize\ttfamily char tmp2\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp2\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
-\mbox{\Hypertarget{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}\label{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}} 
+\mbox{\Hypertarget{main_8c_a39d165c2d4c11dea2432f7db3429afc6}\label{main_8c_a39d165c2d4c11dea2432f7db3429afc6}} 
 \index{main.c@{main.c}!tmp3@{tmp3}}
 \index{tmp3@{tmp3}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp3}{tmp3}}
-{\footnotesize\ttfamily char tmp3\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp3\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
-\mbox{\Hypertarget{main_8c_ae583fa991719680e6199202b8e9c2fd2}\label{main_8c_ae583fa991719680e6199202b8e9c2fd2}} 
+\mbox{\Hypertarget{main_8c_a565ee840f022adb4e8bbb72cb8e5a76c}\label{main_8c_a565ee840f022adb4e8bbb72cb8e5a76c}} 
 \index{main.c@{main.c}!tmp4@{tmp4}}
 \index{tmp4@{tmp4}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp4}{tmp4}}
-{\footnotesize\ttfamily char tmp4\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp4\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
-\mbox{\Hypertarget{main_8c_ad691a0d415853a7a2500332d7f2b48a8}\label{main_8c_ad691a0d415853a7a2500332d7f2b48a8}} 
+\mbox{\Hypertarget{main_8c_a04e054f0d14aad897399fccf8952b81d}\label{main_8c_a04e054f0d14aad897399fccf8952b81d}} 
 \index{main.c@{main.c}!tmp5@{tmp5}}
 \index{tmp5@{tmp5}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp5}{tmp5}}
-{\footnotesize\ttfamily char tmp5\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp5\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
-\mbox{\Hypertarget{main_8c_a966ae3498f573763f29f14aca9e5eefc}\label{main_8c_a966ae3498f573763f29f14aca9e5eefc}} 
+\mbox{\Hypertarget{main_8c_ae292f899f9ab613a28655f8490b9865a}\label{main_8c_ae292f899f9ab613a28655f8490b9865a}} 
 \index{main.c@{main.c}!tmp6@{tmp6}}
 \index{tmp6@{tmp6}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{tmp6}{tmp6}}
-{\footnotesize\ttfamily char tmp6\mbox{[}32\mbox{]} = \{0\}}
+{\footnotesize\ttfamily char tmp6\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]} = \{0\}}
 
 \mbox{\Hypertarget{main_8c_a83c1a2855e7499808c8d28370b7b90f5}\label{main_8c_a83c1a2855e7499808c8d28370b7b90f5}} 
 \index{main.c@{main.c}!txBuffer@{txBuffer}}
 \index{txBuffer@{txBuffer}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{txBuffer}{txBuffer}}
-{\footnotesize\ttfamily uint8\+\_\+t tx\+Buffer\mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms.\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}}
+{\footnotesize\ttfamily uint8\+\_\+t tx\+Buffer\mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms. or Stop\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}stop\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}}
 
 
 
