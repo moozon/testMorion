@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="ru">
+  <compounddef id="dir_70399fa3d88a5292b2b41a1f3fe3e4e2" kind="dir">
+    <compoundname>D:/Projects</compoundname>
+    <innerdir refid="dir_9af6705c4563e9c4fbf390083866e738">D:/Projects/Stm32</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Projects/"/>
+  </compounddef>
+</doxygen>

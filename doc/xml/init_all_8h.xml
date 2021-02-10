@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="ru">
+  <compounddef id="init_all_8h" kind="file" language="C++">
+    <compoundname>initAll.h</compoundname>
+    <includes local="yes">stm32f10x.h</includes>
+    <includes local="yes">stm32f10x_dma.h</includes>
+    <includes local="yes">stm32f10x_gpio.h</includes>
+    <includes local="yes">stm32f10x_usart.h</includes>
+    <includes local="yes">stm32f10x_rcc.h</includes>
+    <includes local="yes">stm32f10x_tim.h</includes>
+    <includes local="yes">stm32f10x_iwdg.h</includes>
+    <includes refid="main_8c" local="yes">main.c</includes>
+    <incdepgraph>
+      <node id="10">
+        <label>platform_config.h</label>
+        <link refid="platform__config_8h"/>
+      </node>
+      <node id="12">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>stm32f10x_usart.h</label>
+      </node>
+      <node id="9">
+        <label>main.c</label>
+        <link refid="main_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>D:/Projects/Stm32/IAR/testMorion/initAll.h</label>
+        <link refid="init_all_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stm32f10x_gpio.h</label>
+      </node>
+      <node id="11">
+        <label>string.h</label>
+      </node>
+      <node id="2">
+        <label>stm32f10x.h</label>
+      </node>
+      <node id="6">
+        <label>stm32f10x_rcc.h</label>
+      </node>
+      <node id="7">
+        <label>stm32f10x_tim.h</label>
+      </node>
+      <node id="8">
+        <label>stm32f10x_iwdg.h</label>
+      </node>
+      <node id="3">
+        <label>stm32f10x_dma.h</label>
+      </node>
+      <node id="13">
+        <label>misc.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;stm32f10x.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_dma.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_usart.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_rcc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_tim.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_iwdg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="main_8c" kindref="compound">main.c</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>initAll();</highlight></codeline>
+    </programlisting>
+    <location file="D:/Projects/Stm32/IAR/testMorion/initAll.h"/>
+  </compounddef>
+</doxygen>

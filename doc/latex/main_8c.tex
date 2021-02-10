@@ -1,0 +1,468 @@
+\hypertarget{main_8c}{}\doxysection{Файл D\+:/\+Projects/\+Stm32/\+IAR/test\+Morion/main.c}
+\label{main_8c}\index{D:/Projects/Stm32/IAR/testMorion/main.c@{D:/Projects/Stm32/IAR/testMorion/main.c}}
+{\ttfamily \#include \char`\"{}stm32f10x.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+dma.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+usart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+rcc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+tim.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f10x\+\_\+iwdg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}platform\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}misc.\+h\char`\"{}}\newline
+\doxysubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8c_a734bbab06e1a9fd2e5522db0221ff6e3}{BAUDRATE}}~115200
+\begin{DoxyCompactList}\small\item\em Тестовое задание\+: test\+Morion. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}~32
+\item 
+\#define \mbox{\hyperlink{main_8c_a9ab33647617098646990fe263600b650}{TX\+\_\+\+BUFFER\+\_\+\+SIZE}}~128
+\item 
+\#define \mbox{\hyperlink{main_8c_af281425e62298bac2df0fbe8690a4844}{PERIOD}}~1000
+\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_af92e16b8081e002c83c30ea3059bd9dc}{init\+All}} ()
+\begin{DoxyCompactList}\small\item\em Инициализация всей периферии \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_aea2c4db5a3720489327d7a5cbf0cedc2}{blink}} (uint32\+\_\+t time\+On, uint32\+\_\+t time\+Off)
+\begin{DoxyCompactList}\small\item\em Задает режим свечения светодиода с заданным временем включения/выключения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a3974a02b903706928212b901e62125f6}{fade}} (uint32\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Задает режим плавного зажегания и затухания светодиода \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(\+IWDG) и МК перезагружается. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}{parse\+Buffer}} (char $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em Парсинг приянтого по USART массива данных \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\item 
+void \mbox{\hyperlink{main_8c_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}{USART1\+\_\+\+IRQHandler}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+GPIO\+\_\+\+Init\+Type\+Def \mbox{\hyperlink{main_8c_af6d4fc85bb091aa2ce3d2c0c0f2c4302}{portA}}
+\item 
+GPIO\+\_\+\+Init\+Type\+Def \mbox{\hyperlink{main_8c_a237a3d41534f4753470bb144d761f3a8}{portB}}
+\item 
+USART\+\_\+\+Init\+Type\+Def \mbox{\hyperlink{main_8c_a354e0130142fc208580973362948fcbc}{usart}}
+\item 
+DMA\+\_\+\+Init\+Type\+Def \mbox{\hyperlink{main_8c_a251354835068e7549fdc97118ae77dfa}{dma}}
+\item 
+NVIC\+\_\+\+Init\+Type\+Def \mbox{\hyperlink{main_8c_af0658b49b677e42e55cc005f80c011f2}{nvic}}
+\item 
+TIM\+\_\+\+Time\+Base\+Init\+Type\+Def \mbox{\hyperlink{main_8c_a88d009b20d08c8a821c4e2b160e960a5}{timer}}
+\item 
+TIM\+\_\+\+OCInit\+Type\+Def \mbox{\hyperlink{main_8c_accdeee591142c25efa533931fac28dfa}{timer\+PWM}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a83c1a2855e7499808c8d28370b7b90f5}{tx\+Buffer}} \mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms.\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}
+\begin{DoxyCompactList}\small\item\em TX буфер USART. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{main_8c_a52965a1c4f6d34e3a0afaa0133a8754e}{rx\+Buffer}} \mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em RX буфер USART. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8c_a7889f4d558b0539240873a7c41a3d1ab}{time1}} = 5000000
+\begin{DoxyCompactList}\small\item\em Временя свечения светодиода \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8c_a03a3f0896a00fef03582fef9b48f978e}{time2}} = 5000000
+\begin{DoxyCompactList}\small\item\em Время НЕ свечения светодиода \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{main_8c_aec6e9ae1ccec2a3b356f0e817b6a386d}{fade\+Time}} = 10000
+\begin{DoxyCompactList}\small\item\em Время плавного зажегания и затухания светодиода, используя Шим на Timer4. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a17be409d95593b3ff983cd52f7053856}{fade\+Flag}} = 0
+\begin{DoxyCompactList}\small\item\em Флаг для режима Fade. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}{tmp1}} \mbox{[}32\mbox{]} = \{0\}
+\begin{DoxyCompactList}\small\item\em Вспомогательные массивы для парсинга основного входящего массива \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{main_8c_adc791551c9d09221f1c21565dfce4f7c}{tmp2}} \mbox{[}32\mbox{]} = \{0\}
+\item 
+char \mbox{\hyperlink{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}{tmp3}} \mbox{[}32\mbox{]} = \{0\}
+\item 
+char \mbox{\hyperlink{main_8c_ae583fa991719680e6199202b8e9c2fd2}{tmp4}} \mbox{[}32\mbox{]} = \{0\}
+\item 
+char \mbox{\hyperlink{main_8c_ad691a0d415853a7a2500332d7f2b48a8}{tmp5}} \mbox{[}32\mbox{]} = \{0\}
+\item 
+char \mbox{\hyperlink{main_8c_a966ae3498f573763f29f14aca9e5eefc}{tmp6}} \mbox{[}32\mbox{]} = \{0\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_af2a4bde7e1b01cf2f420295ee22cf94f}{y1}} = 0
+\begin{DoxyCompactList}\small\item\em Вспомогательные переменные для парсинга основного входящего массива \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_ab46d53655890336d982ec8600a4c5f65}{y2}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a7f30cd571b8069087b6f2477bdfbc24a}{y3}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a028d192d7e544c837a59835942f67b33}{y4}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a791b8034805ba82ebf90f67923070401}{y5}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_a1e51e0a10fc995a2585ddcbd8da369d2}{y6}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_a97fcb0e1731b36905e90757f211b1340}{x1}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_ad660c90589efbb535c7d55dc032c1b09}{x2}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_ae067fb8a14696066b62593d8adf469cd}{x3}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_ad8067db785a09b4566deb8d427b4b7a0}{x4}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_a7d5a341a216c953859a79c5394ee48f7}{x5}} = 0
+\item 
+int \mbox{\hyperlink{main_8c_aa757a3cd35f48b567f130d053e8726df}{x6}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{main_8c_ab98e83e7f7f87cc85f707630dc708703}{rx\+Flag}} = 0
+\begin{DoxyCompactList}\small\item\em Флаг что пришли данные по USART. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}{TIM\+\_\+\+Pulse}} = 0
+\begin{DoxyCompactList}\small\item\em Значение ШИМ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\mbox{\Hypertarget{main_8c_a734bbab06e1a9fd2e5522db0221ff6e3}\label{main_8c_a734bbab06e1a9fd2e5522db0221ff6e3}} 
+\index{main.c@{main.c}!BAUDRATE@{BAUDRATE}}
+\index{BAUDRATE@{BAUDRATE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{BAUDRATE}{BAUDRATE}}
+{\footnotesize\ttfamily \#define BAUDRATE~115200}
+
+
+
+Тестовое задание\+: test\+Morion. 
+
+\begin{DoxyVersion}{Версия}
+1.\+0.\+0
+\end{DoxyVersion}
+Описание\+:
+\begin{DoxyItemize}
+\item МК\+: STM32\+F103\+C8
+\item Светодиод подключен к пину\+: PB6
+\item USRAT1\+: TX=PA9, RX=PA10
+\item Ввод/вывод интерфейса USART реализован через канал DMA
+\end{DoxyItemize}
+
+Работа программы\+: При первоначальном запуске программы светодиод мигает в режиме 500мс включен, 500мс выключен. Можно изменять режим свечения светодиода нижеописанными командами.
+
+Реализовано\+:
+\begin{DoxyEnumerate}
+\item Команда \char`\"{}\+Blink X(ms) Y(ms)\char`\"{} -\/ Задает режим свечения светодиода с заданным временем включения/выключения(X/Y).
+\item Команда \char`\"{}\+Fade X(ms)\char`\"{} -\/ Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4.
+\item Команда \char`\"{}\+Stop\char`\"{} -\/ Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(\+IWDG) и МК перезагружается.
+\item Приглашение пользователк в консоле к выполнению команд с примерами.
+\item Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация.
+\item Создан git репозиторий и выгружен в удаленный репозиторий на Git\+Hub(). Скорость Usart 
+\end{DoxyEnumerate}\mbox{\Hypertarget{main_8c_af281425e62298bac2df0fbe8690a4844}\label{main_8c_af281425e62298bac2df0fbe8690a4844}} 
+\index{main.c@{main.c}!PERIOD@{PERIOD}}
+\index{PERIOD@{PERIOD}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{PERIOD}{PERIOD}}
+{\footnotesize\ttfamily \#define PERIOD~1000}
+
+\mbox{\Hypertarget{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}\label{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}} 
+\index{main.c@{main.c}!RX\_BUFFER\_SIZE@{RX\_BUFFER\_SIZE}}
+\index{RX\_BUFFER\_SIZE@{RX\_BUFFER\_SIZE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{RX\_BUFFER\_SIZE}{RX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define RX\+\_\+\+BUFFER\+\_\+\+SIZE~32}
+
+\mbox{\Hypertarget{main_8c_a9ab33647617098646990fe263600b650}\label{main_8c_a9ab33647617098646990fe263600b650}} 
+\index{main.c@{main.c}!TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}}
+\index{TX\_BUFFER\_SIZE@{TX\_BUFFER\_SIZE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{TX\_BUFFER\_SIZE}{TX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define TX\+\_\+\+BUFFER\+\_\+\+SIZE~128}
+
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{main_8c_aea2c4db5a3720489327d7a5cbf0cedc2}\label{main_8c_aea2c4db5a3720489327d7a5cbf0cedc2}} 
+\index{main.c@{main.c}!blink@{blink}}
+\index{blink@{blink}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{blink()}{blink()}}
+{\footnotesize\ttfamily void blink (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{time\+On,  }\item[{uint32\+\_\+t}]{time\+Off }\end{DoxyParamCaption})}
+
+
+
+Задает режим свечения светодиода с заданным временем включения/выключения 
+
+\mbox{\Hypertarget{main_8c_a3974a02b903706928212b901e62125f6}\label{main_8c_a3974a02b903706928212b901e62125f6}} 
+\index{main.c@{main.c}!fade@{fade}}
+\index{fade@{fade}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fade()}{fade()}}
+{\footnotesize\ttfamily void fade (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+Задает режим плавного зажегания и затухания светодиода 
+
+\mbox{\Hypertarget{main_8c_af92e16b8081e002c83c30ea3059bd9dc}\label{main_8c_af92e16b8081e002c83c30ea3059bd9dc}} 
+\index{main.c@{main.c}!initAll@{initAll}}
+\index{initAll@{initAll}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{initAll()}{initAll()}}
+{\footnotesize\ttfamily void init\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Инициализация всей периферии 
+
+\mbox{\Hypertarget{main_8c_afe461d27b9c48d5921c00d521181f12f}\label{main_8c_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main.c@{main.c}!loop@{loop}}
+\index{loop@{loop}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(\+IWDG) и МК перезагружается. 
+
+\mbox{\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}\label{main_8c_a2ebf8a901f53a250071ff1db8995f2d0}} 
+\index{main.c@{main.c}!parseBuffer@{parseBuffer}}
+\index{parseBuffer@{parseBuffer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{parseBuffer()}{parseBuffer()}}
+{\footnotesize\ttfamily void parse\+Buffer (\begin{DoxyParamCaption}\item[{char $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Парсинг приянтого по USART массива данных 
+
+\mbox{\Hypertarget{main_8c_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}\label{main_8c_a7139cd4baabbbcbab0c1fe6d7d4ae1cc}} 
+\index{main.c@{main.c}!USART1\_IRQHandler@{USART1\_IRQHandler}}
+\index{USART1\_IRQHandler@{USART1\_IRQHandler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{USART1\_IRQHandler()}{USART1\_IRQHandler()}}
+{\footnotesize\ttfamily void USART1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Переменные}
+\mbox{\Hypertarget{main_8c_a251354835068e7549fdc97118ae77dfa}\label{main_8c_a251354835068e7549fdc97118ae77dfa}} 
+\index{main.c@{main.c}!dma@{dma}}
+\index{dma@{dma}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{dma}{dma}}
+{\footnotesize\ttfamily DMA\+\_\+\+Init\+Type\+Def dma}
+
+\mbox{\Hypertarget{main_8c_a17be409d95593b3ff983cd52f7053856}\label{main_8c_a17be409d95593b3ff983cd52f7053856}} 
+\index{main.c@{main.c}!fadeFlag@{fadeFlag}}
+\index{fadeFlag@{fadeFlag}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fadeFlag}{fadeFlag}}
+{\footnotesize\ttfamily uint8\+\_\+t fade\+Flag = 0}
+
+
+
+Флаг для режима Fade. 
+
+\mbox{\Hypertarget{main_8c_aec6e9ae1ccec2a3b356f0e817b6a386d}\label{main_8c_aec6e9ae1ccec2a3b356f0e817b6a386d}} 
+\index{main.c@{main.c}!fadeTime@{fadeTime}}
+\index{fadeTime@{fadeTime}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{fadeTime}{fadeTime}}
+{\footnotesize\ttfamily uint32\+\_\+t fade\+Time = 10000}
+
+
+
+Время плавного зажегания и затухания светодиода, используя Шим на Timer4. 
+
+\mbox{\Hypertarget{main_8c_af0658b49b677e42e55cc005f80c011f2}\label{main_8c_af0658b49b677e42e55cc005f80c011f2}} 
+\index{main.c@{main.c}!nvic@{nvic}}
+\index{nvic@{nvic}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{nvic}{nvic}}
+{\footnotesize\ttfamily NVIC\+\_\+\+Init\+Type\+Def nvic}
+
+\mbox{\Hypertarget{main_8c_af6d4fc85bb091aa2ce3d2c0c0f2c4302}\label{main_8c_af6d4fc85bb091aa2ce3d2c0c0f2c4302}} 
+\index{main.c@{main.c}!portA@{portA}}
+\index{portA@{portA}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{portA}{portA}}
+{\footnotesize\ttfamily GPIO\+\_\+\+Init\+Type\+Def portA}
+
+\mbox{\Hypertarget{main_8c_a237a3d41534f4753470bb144d761f3a8}\label{main_8c_a237a3d41534f4753470bb144d761f3a8}} 
+\index{main.c@{main.c}!portB@{portB}}
+\index{portB@{portB}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{portB}{portB}}
+{\footnotesize\ttfamily GPIO\+\_\+\+Init\+Type\+Def portB}
+
+\mbox{\Hypertarget{main_8c_a52965a1c4f6d34e3a0afaa0133a8754e}\label{main_8c_a52965a1c4f6d34e3a0afaa0133a8754e}} 
+\index{main.c@{main.c}!rxBuffer@{rxBuffer}}
+\index{rxBuffer@{rxBuffer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxBuffer}{rxBuffer}}
+{\footnotesize\ttfamily char rx\+Buffer\mbox{[}\mbox{\hyperlink{main_8c_a739a2a1a0047c98ac1b18ecd25dac092}{RX\+\_\+\+BUFFER\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+RX буфер USART. 
+
+\mbox{\Hypertarget{main_8c_ab98e83e7f7f87cc85f707630dc708703}\label{main_8c_ab98e83e7f7f87cc85f707630dc708703}} 
+\index{main.c@{main.c}!rxFlag@{rxFlag}}
+\index{rxFlag@{rxFlag}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxFlag}{rxFlag}}
+{\footnotesize\ttfamily uint8\+\_\+t rx\+Flag = 0}
+
+
+
+Флаг что пришли данные по USART. 
+
+\mbox{\Hypertarget{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}\label{main_8c_a3380e5e9a4c8096af96336fea3f92b1b}} 
+\index{main.c@{main.c}!TIM\_Pulse@{TIM\_Pulse}}
+\index{TIM\_Pulse@{TIM\_Pulse}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{TIM\_Pulse}{TIM\_Pulse}}
+{\footnotesize\ttfamily int TIM\+\_\+\+Pulse = 0}
+
+
+
+Значение ШИМ 
+
+\mbox{\Hypertarget{main_8c_a7889f4d558b0539240873a7c41a3d1ab}\label{main_8c_a7889f4d558b0539240873a7c41a3d1ab}} 
+\index{main.c@{main.c}!time1@{time1}}
+\index{time1@{time1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{time1}{time1}}
+{\footnotesize\ttfamily uint32\+\_\+t time1 = 5000000}
+
+
+
+Временя свечения светодиода 
+
+\mbox{\Hypertarget{main_8c_a03a3f0896a00fef03582fef9b48f978e}\label{main_8c_a03a3f0896a00fef03582fef9b48f978e}} 
+\index{main.c@{main.c}!time2@{time2}}
+\index{time2@{time2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{time2}{time2}}
+{\footnotesize\ttfamily uint32\+\_\+t time2 = 5000000}
+
+
+
+Время НЕ свечения светодиода 
+
+\mbox{\Hypertarget{main_8c_a88d009b20d08c8a821c4e2b160e960a5}\label{main_8c_a88d009b20d08c8a821c4e2b160e960a5}} 
+\index{main.c@{main.c}!timer@{timer}}
+\index{timer@{timer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily TIM\+\_\+\+Time\+Base\+Init\+Type\+Def timer}
+
+\mbox{\Hypertarget{main_8c_accdeee591142c25efa533931fac28dfa}\label{main_8c_accdeee591142c25efa533931fac28dfa}} 
+\index{main.c@{main.c}!timerPWM@{timerPWM}}
+\index{timerPWM@{timerPWM}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{timerPWM}{timerPWM}}
+{\footnotesize\ttfamily TIM\+\_\+\+OCInit\+Type\+Def timer\+PWM}
+
+\mbox{\Hypertarget{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}\label{main_8c_a5b30a92e7c4a176e2f29d9102d9751a0}} 
+\index{main.c@{main.c}!tmp1@{tmp1}}
+\index{tmp1@{tmp1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp1}{tmp1}}
+{\footnotesize\ttfamily char tmp1\mbox{[}32\mbox{]} = \{0\}}
+
+
+
+Вспомогательные массивы для парсинга основного входящего массива 
+
+\mbox{\Hypertarget{main_8c_adc791551c9d09221f1c21565dfce4f7c}\label{main_8c_adc791551c9d09221f1c21565dfce4f7c}} 
+\index{main.c@{main.c}!tmp2@{tmp2}}
+\index{tmp2@{tmp2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp2}{tmp2}}
+{\footnotesize\ttfamily char tmp2\mbox{[}32\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}\label{main_8c_ab7e1b5b77a3532a50a07a09194055d3b}} 
+\index{main.c@{main.c}!tmp3@{tmp3}}
+\index{tmp3@{tmp3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp3}{tmp3}}
+{\footnotesize\ttfamily char tmp3\mbox{[}32\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{main_8c_ae583fa991719680e6199202b8e9c2fd2}\label{main_8c_ae583fa991719680e6199202b8e9c2fd2}} 
+\index{main.c@{main.c}!tmp4@{tmp4}}
+\index{tmp4@{tmp4}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp4}{tmp4}}
+{\footnotesize\ttfamily char tmp4\mbox{[}32\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{main_8c_ad691a0d415853a7a2500332d7f2b48a8}\label{main_8c_ad691a0d415853a7a2500332d7f2b48a8}} 
+\index{main.c@{main.c}!tmp5@{tmp5}}
+\index{tmp5@{tmp5}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp5}{tmp5}}
+{\footnotesize\ttfamily char tmp5\mbox{[}32\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{main_8c_a966ae3498f573763f29f14aca9e5eefc}\label{main_8c_a966ae3498f573763f29f14aca9e5eefc}} 
+\index{main.c@{main.c}!tmp6@{tmp6}}
+\index{tmp6@{tmp6}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{tmp6}{tmp6}}
+{\footnotesize\ttfamily char tmp6\mbox{[}32\mbox{]} = \{0\}}
+
+\mbox{\Hypertarget{main_8c_a83c1a2855e7499808c8d28370b7b90f5}\label{main_8c_a83c1a2855e7499808c8d28370b7b90f5}} 
+\index{main.c@{main.c}!txBuffer@{txBuffer}}
+\index{txBuffer@{txBuffer}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{txBuffer}{txBuffer}}
+{\footnotesize\ttfamily uint8\+\_\+t tx\+Buffer\mbox{[}128\mbox{]} = \char`\"{}Hello, please enter Blink or PWM time in ms.\+:\textbackslash{}n\+Examples\+:\textbackslash{}n \textbackslash{}\char`\"{}blink 500 500\textbackslash{}\char`\"{}\textbackslash{}n \textbackslash{}\char`\"{}fade 500\textbackslash{}\char`\"{}\textbackslash{}n\char`\"{}}
+
+
+
+TX буфер USART. 
+
+\mbox{\Hypertarget{main_8c_a354e0130142fc208580973362948fcbc}\label{main_8c_a354e0130142fc208580973362948fcbc}} 
+\index{main.c@{main.c}!usart@{usart}}
+\index{usart@{usart}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{usart}{usart}}
+{\footnotesize\ttfamily USART\+\_\+\+Init\+Type\+Def usart}
+
+\mbox{\Hypertarget{main_8c_a97fcb0e1731b36905e90757f211b1340}\label{main_8c_a97fcb0e1731b36905e90757f211b1340}} 
+\index{main.c@{main.c}!x1@{x1}}
+\index{x1@{x1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x1}{x1}}
+{\footnotesize\ttfamily int x1 = 0}
+
+\mbox{\Hypertarget{main_8c_ad660c90589efbb535c7d55dc032c1b09}\label{main_8c_ad660c90589efbb535c7d55dc032c1b09}} 
+\index{main.c@{main.c}!x2@{x2}}
+\index{x2@{x2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x2}{x2}}
+{\footnotesize\ttfamily int x2 = 0}
+
+\mbox{\Hypertarget{main_8c_ae067fb8a14696066b62593d8adf469cd}\label{main_8c_ae067fb8a14696066b62593d8adf469cd}} 
+\index{main.c@{main.c}!x3@{x3}}
+\index{x3@{x3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x3}{x3}}
+{\footnotesize\ttfamily int x3 = 0}
+
+\mbox{\Hypertarget{main_8c_ad8067db785a09b4566deb8d427b4b7a0}\label{main_8c_ad8067db785a09b4566deb8d427b4b7a0}} 
+\index{main.c@{main.c}!x4@{x4}}
+\index{x4@{x4}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x4}{x4}}
+{\footnotesize\ttfamily int x4 = 0}
+
+\mbox{\Hypertarget{main_8c_a7d5a341a216c953859a79c5394ee48f7}\label{main_8c_a7d5a341a216c953859a79c5394ee48f7}} 
+\index{main.c@{main.c}!x5@{x5}}
+\index{x5@{x5}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x5}{x5}}
+{\footnotesize\ttfamily int x5 = 0}
+
+\mbox{\Hypertarget{main_8c_aa757a3cd35f48b567f130d053e8726df}\label{main_8c_aa757a3cd35f48b567f130d053e8726df}} 
+\index{main.c@{main.c}!x6@{x6}}
+\index{x6@{x6}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{x6}{x6}}
+{\footnotesize\ttfamily int x6 = 0}
+
+\mbox{\Hypertarget{main_8c_af2a4bde7e1b01cf2f420295ee22cf94f}\label{main_8c_af2a4bde7e1b01cf2f420295ee22cf94f}} 
+\index{main.c@{main.c}!y1@{y1}}
+\index{y1@{y1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y1}{y1}}
+{\footnotesize\ttfamily uint8\+\_\+t y1 = 0}
+
+
+
+Вспомогательные переменные для парсинга основного входящего массива 
+
+\mbox{\Hypertarget{main_8c_ab46d53655890336d982ec8600a4c5f65}\label{main_8c_ab46d53655890336d982ec8600a4c5f65}} 
+\index{main.c@{main.c}!y2@{y2}}
+\index{y2@{y2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y2}{y2}}
+{\footnotesize\ttfamily uint8\+\_\+t y2 = 0}
+
+\mbox{\Hypertarget{main_8c_a7f30cd571b8069087b6f2477bdfbc24a}\label{main_8c_a7f30cd571b8069087b6f2477bdfbc24a}} 
+\index{main.c@{main.c}!y3@{y3}}
+\index{y3@{y3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y3}{y3}}
+{\footnotesize\ttfamily uint8\+\_\+t y3 = 0}
+
+\mbox{\Hypertarget{main_8c_a028d192d7e544c837a59835942f67b33}\label{main_8c_a028d192d7e544c837a59835942f67b33}} 
+\index{main.c@{main.c}!y4@{y4}}
+\index{y4@{y4}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y4}{y4}}
+{\footnotesize\ttfamily uint8\+\_\+t y4 = 0}
+
+\mbox{\Hypertarget{main_8c_a791b8034805ba82ebf90f67923070401}\label{main_8c_a791b8034805ba82ebf90f67923070401}} 
+\index{main.c@{main.c}!y5@{y5}}
+\index{y5@{y5}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y5}{y5}}
+{\footnotesize\ttfamily uint8\+\_\+t y5 = 0}
+
+\mbox{\Hypertarget{main_8c_a1e51e0a10fc995a2585ddcbd8da369d2}\label{main_8c_a1e51e0a10fc995a2585ddcbd8da369d2}} 
+\index{main.c@{main.c}!y6@{y6}}
+\index{y6@{y6}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{y6}{y6}}
+{\footnotesize\ttfamily uint8\+\_\+t y6 = 0}
+

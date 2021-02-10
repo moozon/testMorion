@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="ru">
+  <compound refid="main_8c" kind="file"><name>main.c</name>
+    <member refid="main_8c_1a734bbab06e1a9fd2e5522db0221ff6e3" kind="define"><name>BAUDRATE</name></member>
+    <member refid="main_8c_1a739a2a1a0047c98ac1b18ecd25dac092" kind="define"><name>RX_BUFFER_SIZE</name></member>
+    <member refid="main_8c_1a9ab33647617098646990fe263600b650" kind="define"><name>TX_BUFFER_SIZE</name></member>
+    <member refid="main_8c_1af281425e62298bac2df0fbe8690a4844" kind="define"><name>PERIOD</name></member>
+    <member refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kind="variable"><name>portA</name></member>
+    <member refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kind="variable"><name>portB</name></member>
+    <member refid="main_8c_1a354e0130142fc208580973362948fcbc" kind="variable"><name>usart</name></member>
+    <member refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kind="variable"><name>dma</name></member>
+    <member refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kind="variable"><name>nvic</name></member>
+    <member refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kind="variable"><name>timer</name></member>
+    <member refid="main_8c_1accdeee591142c25efa533931fac28dfa" kind="variable"><name>timerPWM</name></member>
+    <member refid="main_8c_1a83c1a2855e7499808c8d28370b7b90f5" kind="variable"><name>txBuffer</name></member>
+    <member refid="main_8c_1a52965a1c4f6d34e3a0afaa0133a8754e" kind="variable"><name>rxBuffer</name></member>
+    <member refid="main_8c_1a7889f4d558b0539240873a7c41a3d1ab" kind="variable"><name>time1</name></member>
+    <member refid="main_8c_1a03a3f0896a00fef03582fef9b48f978e" kind="variable"><name>time2</name></member>
+    <member refid="main_8c_1aec6e9ae1ccec2a3b356f0e817b6a386d" kind="variable"><name>fadeTime</name></member>
+    <member refid="main_8c_1a17be409d95593b3ff983cd52f7053856" kind="variable"><name>fadeFlag</name></member>
+    <member refid="main_8c_1a5b30a92e7c4a176e2f29d9102d9751a0" kind="variable"><name>tmp1</name></member>
+    <member refid="main_8c_1adc791551c9d09221f1c21565dfce4f7c" kind="variable"><name>tmp2</name></member>
+    <member refid="main_8c_1ab7e1b5b77a3532a50a07a09194055d3b" kind="variable"><name>tmp3</name></member>
+    <member refid="main_8c_1ae583fa991719680e6199202b8e9c2fd2" kind="variable"><name>tmp4</name></member>
+    <member refid="main_8c_1ad691a0d415853a7a2500332d7f2b48a8" kind="variable"><name>tmp5</name></member>
+    <member refid="main_8c_1a966ae3498f573763f29f14aca9e5eefc" kind="variable"><name>tmp6</name></member>
+    <member refid="main_8c_1af2a4bde7e1b01cf2f420295ee22cf94f" kind="variable"><name>y1</name></member>
+    <member refid="main_8c_1ab46d53655890336d982ec8600a4c5f65" kind="variable"><name>y2</name></member>
+    <member refid="main_8c_1a7f30cd571b8069087b6f2477bdfbc24a" kind="variable"><name>y3</name></member>
+    <member refid="main_8c_1a028d192d7e544c837a59835942f67b33" kind="variable"><name>y4</name></member>
+    <member refid="main_8c_1a791b8034805ba82ebf90f67923070401" kind="variable"><name>y5</name></member>
+    <member refid="main_8c_1a1e51e0a10fc995a2585ddcbd8da369d2" kind="variable"><name>y6</name></member>
+    <member refid="main_8c_1a97fcb0e1731b36905e90757f211b1340" kind="variable"><name>x1</name></member>
+    <member refid="main_8c_1ad660c90589efbb535c7d55dc032c1b09" kind="variable"><name>x2</name></member>
+    <member refid="main_8c_1ae067fb8a14696066b62593d8adf469cd" kind="variable"><name>x3</name></member>
+    <member refid="main_8c_1ad8067db785a09b4566deb8d427b4b7a0" kind="variable"><name>x4</name></member>
+    <member refid="main_8c_1a7d5a341a216c953859a79c5394ee48f7" kind="variable"><name>x5</name></member>
+    <member refid="main_8c_1aa757a3cd35f48b567f130d053e8726df" kind="variable"><name>x6</name></member>
+    <member refid="main_8c_1ab98e83e7f7f87cc85f707630dc708703" kind="variable"><name>rxFlag</name></member>
+    <member refid="main_8c_1a3380e5e9a4c8096af96336fea3f92b1b" kind="variable"><name>TIM_Pulse</name></member>
+    <member refid="main_8c_1af92e16b8081e002c83c30ea3059bd9dc" kind="function"><name>initAll</name></member>
+    <member refid="main_8c_1aea2c4db5a3720489327d7a5cbf0cedc2" kind="function"><name>blink</name></member>
+    <member refid="main_8c_1a3974a02b903706928212b901e62125f6" kind="function"><name>fade</name></member>
+    <member refid="main_8c_1afe461d27b9c48d5921c00d521181f12f" kind="function"><name>loop</name></member>
+    <member refid="main_8c_1a2ebf8a901f53a250071ff1db8995f2d0" kind="function"><name>parseBuffer</name></member>
+    <member refid="main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+    <member refid="main_8c_1a7139cd4baabbbcbab0c1fe6d7d4ae1cc" kind="function"><name>USART1_IRQHandler</name></member>
+  </compound>
+  <compound refid="platform__config_8h" kind="file"><name>platform_config.h</name>
+    <member refid="platform__config_8h_1a3230b3339415eea9f2b338f5cd3057e5" kind="define"><name>USART1_GPIO</name></member>
+    <member refid="platform__config_8h_1ad2868bad002929b6470b48b2b309b0bb" kind="define"><name>USART1_CLK</name></member>
+    <member refid="platform__config_8h_1abda2806e3c17666f3c3d916249791c8c" kind="define"><name>USART1_GPIO_CLK</name></member>
+    <member refid="platform__config_8h_1a1bdc065f5032ba2eb2b10ea8e765dbe4" kind="define"><name>USART1_RxPin</name></member>
+    <member refid="platform__config_8h_1a5147670644bd41a8956ff15796581877" kind="define"><name>USART1_TxPin</name></member>
+    <member refid="platform__config_8h_1a4b3d2f77040e814ee0b35f2dc69ad4f5" kind="define"><name>USART1_Tx_DMA_Channel</name></member>
+    <member refid="platform__config_8h_1a4c305e534315f137d07a0ad9b0e0c124" kind="define"><name>USART1_Tx_DMA_FLAG</name></member>
+    <member refid="platform__config_8h_1a46c730be0c9bb80c9161dd06ea1f8d76" kind="define"><name>USART1_Rx_DMA_Channel</name></member>
+    <member refid="platform__config_8h_1a9cb1c4824fcaa4acec515ddb40eab4e1" kind="define"><name>USART1_Rx_DMA_FLAG</name></member>
+    <member refid="platform__config_8h_1aa3d5bffde9e408292f931efff3860213" kind="define"><name>USART1_DR_Base</name></member>
+    <member refid="platform__config_8h_1a4df3313c33a0e791086dd514215db671" kind="define"><name>USB_DISCONNECT</name></member>
+    <member refid="platform__config_8h_1a5c76bd75f5fc16ec5db66f162eedfdee" kind="define"><name>USB_DISCONNECT_PIN</name></member>
+    <member refid="platform__config_8h_1a5d5d64e15f30d0daa2ae6c6442811776" kind="define"><name>USB_DISCONNECT_LOG1</name></member>
+    <member refid="platform__config_8h_1ae71171fdbd42c20b03236949616a4e8a" kind="define"><name>RCC_APB2Periph_GPIO_DISCONNECT</name></member>
+    <member refid="platform__config_8h_1a8aa85ae9867fabf70ec72cd3bf6fb6b9" kind="define"><name>LED1</name></member>
+    <member refid="platform__config_8h_1a5d97443b4011e40e47164445dc1adde0" kind="define"><name>LED1_GPIO_PORT</name></member>
+    <member refid="platform__config_8h_1a07055149c7565de2c3142b33b136fd12" kind="define"><name>LED1_GPIO_CLK</name></member>
+    <member refid="platform__config_8h_1a2e813d7da8f4e7486dec75bf8a5ba51b" kind="define"><name>LED1_GPIO_PIN</name></member>
+    <member refid="platform__config_8h_1a04650c5f08d519a5737316694a666b27" kind="define"><name>USE_USART1_DEFAULT_PA9_PA10</name></member>
+  </compound>
+  <compound refid="dir_275089585c7fc1b5fd5d7d42c69cb1da" kind="dir"><name>D:</name>
+  </compound>
+  <compound refid="dir_f80e9f2cab5001b319803c708f76b705" kind="dir"><name>D:/Projects/Stm32/IAR</name>
+  </compound>
+  <compound refid="dir_70399fa3d88a5292b2b41a1f3fe3e4e2" kind="dir"><name>D:/Projects</name>
+  </compound>
+  <compound refid="dir_9af6705c4563e9c4fbf390083866e738" kind="dir"><name>D:/Projects/Stm32</name>
+  </compound>
+  <compound refid="dir_dc6971a25b2d9db7e62ff49e6da3e01f" kind="dir"><name>D:/Projects/Stm32/IAR/testMorion</name>
+  </compound>
+</doxygenindex>

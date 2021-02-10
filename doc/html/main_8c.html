@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>testMorion: Файл D:/Projects/Stm32/IAR/testMorion/main.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">testMorion
+   &#160;<span id="projectnumber">1.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_70399fa3d88a5292b2b41a1f3fe3e4e2.html">Projects</a></li><li class="navelem"><a class="el" href="dir_9af6705c4563e9c4fbf390083866e738.html">Stm32</a></li><li class="navelem"><a class="el" href="dir_f80e9f2cab5001b319803c708f76b705.html">IAR</a></li><li class="navelem"><a class="el" href="dir_dc6971a25b2d9db7e62ff49e6da3e01f.html">testMorion</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Макросы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл main.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;stm32f10x.h&quot;</code><br />
+<code>#include &quot;stm32f10x_dma.h&quot;</code><br />
+<code>#include &quot;stm32f10x_gpio.h&quot;</code><br />
+<code>#include &quot;stm32f10x_usart.h&quot;</code><br />
+<code>#include &quot;stm32f10x_rcc.h&quot;</code><br />
+<code>#include &quot;stm32f10x_tim.h&quot;</code><br />
+<code>#include &quot;stm32f10x_iwdg.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="platform__config_8h_source.html">platform_config.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;misc.h&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Макросы</h2></td></tr>
+<tr class="memitem:a734bbab06e1a9fd2e5522db0221ff6e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a734bbab06e1a9fd2e5522db0221ff6e3">BAUDRATE</a>&#160;&#160;&#160;115200</td></tr>
+<tr class="memdesc:a734bbab06e1a9fd2e5522db0221ff6e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тестовое задание: testMorion.  <a href="main_8c.html#a734bbab06e1a9fd2e5522db0221ff6e3">Подробнее...</a><br /></td></tr>
+<tr class="separator:a734bbab06e1a9fd2e5522db0221ff6e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739a2a1a0047c98ac1b18ecd25dac092"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a739a2a1a0047c98ac1b18ecd25dac092">RX_BUFFER_SIZE</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a739a2a1a0047c98ac1b18ecd25dac092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ab33647617098646990fe263600b650"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9ab33647617098646990fe263600b650">TX_BUFFER_SIZE</a>&#160;&#160;&#160;128</td></tr>
+<tr class="separator:a9ab33647617098646990fe263600b650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af281425e62298bac2df0fbe8690a4844"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af281425e62298bac2df0fbe8690a4844">PERIOD</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:af281425e62298bac2df0fbe8690a4844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:af92e16b8081e002c83c30ea3059bd9dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af92e16b8081e002c83c30ea3059bd9dc">initAll</a> ()</td></tr>
+<tr class="memdesc:af92e16b8081e002c83c30ea3059bd9dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация всей периферии  <a href="main_8c.html#af92e16b8081e002c83c30ea3059bd9dc">Подробнее...</a><br /></td></tr>
+<tr class="separator:af92e16b8081e002c83c30ea3059bd9dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea2c4db5a3720489327d7a5cbf0cedc2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aea2c4db5a3720489327d7a5cbf0cedc2">blink</a> (uint32_t timeOn, uint32_t timeOff)</td></tr>
+<tr class="memdesc:aea2c4db5a3720489327d7a5cbf0cedc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Задает режим свечения светодиода с заданным временем включения/выключения  <a href="main_8c.html#aea2c4db5a3720489327d7a5cbf0cedc2">Подробнее...</a><br /></td></tr>
+<tr class="separator:aea2c4db5a3720489327d7a5cbf0cedc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3974a02b903706928212b901e62125f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3974a02b903706928212b901e62125f6">fade</a> (uint32_t time)</td></tr>
+<tr class="memdesc:a3974a02b903706928212b901e62125f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Задает режим плавного зажегания и затухания светодиода  <a href="main_8c.html#a3974a02b903706928212b901e62125f6">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3974a02b903706928212b901e62125f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe461d27b9c48d5921c00d521181f12f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#afe461d27b9c48d5921c00d521181f12f">loop</a> ()</td></tr>
+<tr class="memdesc:afe461d27b9c48d5921c00d521181f12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается.  <a href="main_8c.html#afe461d27b9c48d5921c00d521181f12f">Подробнее...</a><br /></td></tr>
+<tr class="separator:afe461d27b9c48d5921c00d521181f12f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ebf8a901f53a250071ff1db8995f2d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2ebf8a901f53a250071ff1db8995f2d0">parseBuffer</a> (char *buffer)</td></tr>
+<tr class="memdesc:a2ebf8a901f53a250071ff1db8995f2d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Парсинг приянтого по USART массива данных  <a href="main_8c.html#a2ebf8a901f53a250071ff1db8995f2d0">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2ebf8a901f53a250071ff1db8995f2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
+<tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7139cd4baabbbcbab0c1fe6d7d4ae1cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7139cd4baabbbcbab0c1fe6d7d4ae1cc">USART1_IRQHandler</a> (void)</td></tr>
+<tr class="separator:a7139cd4baabbbcbab0c1fe6d7d4ae1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:af6d4fc85bb091aa2ce3d2c0c0f2c4302"><td class="memItemLeft" align="right" valign="top">GPIO_InitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af6d4fc85bb091aa2ce3d2c0c0f2c4302">portA</a></td></tr>
+<tr class="separator:af6d4fc85bb091aa2ce3d2c0c0f2c4302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a237a3d41534f4753470bb144d761f3a8"><td class="memItemLeft" align="right" valign="top">GPIO_InitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a237a3d41534f4753470bb144d761f3a8">portB</a></td></tr>
+<tr class="separator:a237a3d41534f4753470bb144d761f3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a354e0130142fc208580973362948fcbc"><td class="memItemLeft" align="right" valign="top">USART_InitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a354e0130142fc208580973362948fcbc">usart</a></td></tr>
+<tr class="separator:a354e0130142fc208580973362948fcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251354835068e7549fdc97118ae77dfa"><td class="memItemLeft" align="right" valign="top">DMA_InitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a251354835068e7549fdc97118ae77dfa">dma</a></td></tr>
+<tr class="separator:a251354835068e7549fdc97118ae77dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0658b49b677e42e55cc005f80c011f2"><td class="memItemLeft" align="right" valign="top">NVIC_InitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af0658b49b677e42e55cc005f80c011f2">nvic</a></td></tr>
+<tr class="separator:af0658b49b677e42e55cc005f80c011f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88d009b20d08c8a821c4e2b160e960a5"><td class="memItemLeft" align="right" valign="top">TIM_TimeBaseInitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a88d009b20d08c8a821c4e2b160e960a5">timer</a></td></tr>
+<tr class="separator:a88d009b20d08c8a821c4e2b160e960a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accdeee591142c25efa533931fac28dfa"><td class="memItemLeft" align="right" valign="top">TIM_OCInitTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#accdeee591142c25efa533931fac28dfa">timerPWM</a></td></tr>
+<tr class="separator:accdeee591142c25efa533931fac28dfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c1a2855e7499808c8d28370b7b90f5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a83c1a2855e7499808c8d28370b7b90f5">txBuffer</a> [128] = &quot;Hello, please enter Blink or PWM time in ms.:\nExamples:\n \&quot;blink 500 500\&quot;\n \&quot;fade 500\&quot;\n&quot;</td></tr>
+<tr class="memdesc:a83c1a2855e7499808c8d28370b7b90f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">TX буфер USART.  <a href="main_8c.html#a83c1a2855e7499808c8d28370b7b90f5">Подробнее...</a><br /></td></tr>
+<tr class="separator:a83c1a2855e7499808c8d28370b7b90f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52965a1c4f6d34e3a0afaa0133a8754e"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a52965a1c4f6d34e3a0afaa0133a8754e">rxBuffer</a> [<a class="el" href="main_8c.html#a739a2a1a0047c98ac1b18ecd25dac092">RX_BUFFER_SIZE</a>]</td></tr>
+<tr class="memdesc:a52965a1c4f6d34e3a0afaa0133a8754e"><td class="mdescLeft">&#160;</td><td class="mdescRight">RX буфер USART.  <a href="main_8c.html#a52965a1c4f6d34e3a0afaa0133a8754e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a52965a1c4f6d34e3a0afaa0133a8754e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7889f4d558b0539240873a7c41a3d1ab"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7889f4d558b0539240873a7c41a3d1ab">time1</a> = 5000000</td></tr>
+<tr class="memdesc:a7889f4d558b0539240873a7c41a3d1ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Временя свечения светодиода  <a href="main_8c.html#a7889f4d558b0539240873a7c41a3d1ab">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7889f4d558b0539240873a7c41a3d1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a3f0896a00fef03582fef9b48f978e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a03a3f0896a00fef03582fef9b48f978e">time2</a> = 5000000</td></tr>
+<tr class="memdesc:a03a3f0896a00fef03582fef9b48f978e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Время НЕ свечения светодиода  <a href="main_8c.html#a03a3f0896a00fef03582fef9b48f978e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a03a3f0896a00fef03582fef9b48f978e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6e9ae1ccec2a3b356f0e817b6a386d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aec6e9ae1ccec2a3b356f0e817b6a386d">fadeTime</a> = 10000</td></tr>
+<tr class="memdesc:aec6e9ae1ccec2a3b356f0e817b6a386d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Время плавного зажегания и затухания светодиода, используя Шим на Timer4.  <a href="main_8c.html#aec6e9ae1ccec2a3b356f0e817b6a386d">Подробнее...</a><br /></td></tr>
+<tr class="separator:aec6e9ae1ccec2a3b356f0e817b6a386d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17be409d95593b3ff983cd52f7053856"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a17be409d95593b3ff983cd52f7053856">fadeFlag</a> = 0</td></tr>
+<tr class="memdesc:a17be409d95593b3ff983cd52f7053856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг для режима Fade.  <a href="main_8c.html#a17be409d95593b3ff983cd52f7053856">Подробнее...</a><br /></td></tr>
+<tr class="separator:a17be409d95593b3ff983cd52f7053856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b30a92e7c4a176e2f29d9102d9751a0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5b30a92e7c4a176e2f29d9102d9751a0">tmp1</a> [32] = {0}</td></tr>
+<tr class="memdesc:a5b30a92e7c4a176e2f29d9102d9751a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вспомогательные массивы для парсинга основного входящего массива  <a href="main_8c.html#a5b30a92e7c4a176e2f29d9102d9751a0">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5b30a92e7c4a176e2f29d9102d9751a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc791551c9d09221f1c21565dfce4f7c"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#adc791551c9d09221f1c21565dfce4f7c">tmp2</a> [32] = {0}</td></tr>
+<tr class="separator:adc791551c9d09221f1c21565dfce4f7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e1b5b77a3532a50a07a09194055d3b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab7e1b5b77a3532a50a07a09194055d3b">tmp3</a> [32] = {0}</td></tr>
+<tr class="separator:ab7e1b5b77a3532a50a07a09194055d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae583fa991719680e6199202b8e9c2fd2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae583fa991719680e6199202b8e9c2fd2">tmp4</a> [32] = {0}</td></tr>
+<tr class="separator:ae583fa991719680e6199202b8e9c2fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad691a0d415853a7a2500332d7f2b48a8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad691a0d415853a7a2500332d7f2b48a8">tmp5</a> [32] = {0}</td></tr>
+<tr class="separator:ad691a0d415853a7a2500332d7f2b48a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966ae3498f573763f29f14aca9e5eefc"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a966ae3498f573763f29f14aca9e5eefc">tmp6</a> [32] = {0}</td></tr>
+<tr class="separator:a966ae3498f573763f29f14aca9e5eefc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2a4bde7e1b01cf2f420295ee22cf94f"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af2a4bde7e1b01cf2f420295ee22cf94f">y1</a> = 0</td></tr>
+<tr class="memdesc:af2a4bde7e1b01cf2f420295ee22cf94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вспомогательные переменные для парсинга основного входящего массива  <a href="main_8c.html#af2a4bde7e1b01cf2f420295ee22cf94f">Подробнее...</a><br /></td></tr>
+<tr class="separator:af2a4bde7e1b01cf2f420295ee22cf94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab46d53655890336d982ec8600a4c5f65"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab46d53655890336d982ec8600a4c5f65">y2</a> = 0</td></tr>
+<tr class="separator:ab46d53655890336d982ec8600a4c5f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f30cd571b8069087b6f2477bdfbc24a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7f30cd571b8069087b6f2477bdfbc24a">y3</a> = 0</td></tr>
+<tr class="separator:a7f30cd571b8069087b6f2477bdfbc24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a028d192d7e544c837a59835942f67b33"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a028d192d7e544c837a59835942f67b33">y4</a> = 0</td></tr>
+<tr class="separator:a028d192d7e544c837a59835942f67b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a791b8034805ba82ebf90f67923070401"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a791b8034805ba82ebf90f67923070401">y5</a> = 0</td></tr>
+<tr class="separator:a791b8034805ba82ebf90f67923070401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e51e0a10fc995a2585ddcbd8da369d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1e51e0a10fc995a2585ddcbd8da369d2">y6</a> = 0</td></tr>
+<tr class="separator:a1e51e0a10fc995a2585ddcbd8da369d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97fcb0e1731b36905e90757f211b1340"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a97fcb0e1731b36905e90757f211b1340">x1</a> = 0</td></tr>
+<tr class="separator:a97fcb0e1731b36905e90757f211b1340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad660c90589efbb535c7d55dc032c1b09"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad660c90589efbb535c7d55dc032c1b09">x2</a> = 0</td></tr>
+<tr class="separator:ad660c90589efbb535c7d55dc032c1b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae067fb8a14696066b62593d8adf469cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae067fb8a14696066b62593d8adf469cd">x3</a> = 0</td></tr>
+<tr class="separator:ae067fb8a14696066b62593d8adf469cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8067db785a09b4566deb8d427b4b7a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad8067db785a09b4566deb8d427b4b7a0">x4</a> = 0</td></tr>
+<tr class="separator:ad8067db785a09b4566deb8d427b4b7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d5a341a216c953859a79c5394ee48f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7d5a341a216c953859a79c5394ee48f7">x5</a> = 0</td></tr>
+<tr class="separator:a7d5a341a216c953859a79c5394ee48f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa757a3cd35f48b567f130d053e8726df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa757a3cd35f48b567f130d053e8726df">x6</a> = 0</td></tr>
+<tr class="separator:aa757a3cd35f48b567f130d053e8726df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab98e83e7f7f87cc85f707630dc708703"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab98e83e7f7f87cc85f707630dc708703">rxFlag</a> = 0</td></tr>
+<tr class="memdesc:ab98e83e7f7f87cc85f707630dc708703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг что пришли данные по USART.  <a href="main_8c.html#ab98e83e7f7f87cc85f707630dc708703">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab98e83e7f7f87cc85f707630dc708703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3380e5e9a4c8096af96336fea3f92b1b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3380e5e9a4c8096af96336fea3f92b1b">TIM_Pulse</a> = 0</td></tr>
+<tr class="memdesc:a3380e5e9a4c8096af96336fea3f92b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Значение ШИМ  <a href="main_8c.html#a3380e5e9a4c8096af96336fea3f92b1b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3380e5e9a4c8096af96336fea3f92b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Макросы</h2>
+<a id="a734bbab06e1a9fd2e5522db0221ff6e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a734bbab06e1a9fd2e5522db0221ff6e3">&#9670;&nbsp;</a></span>BAUDRATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BAUDRATE&#160;&#160;&#160;115200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Тестовое задание: testMorion. </p>
+<dl class="section version"><dt>Версия</dt><dd>1.0.0</dd></dl>
+<p>Описание:</p><ul>
+<li>МК: STM32F103C8</li>
+<li>Светодиод подключен к пину: PB6</li>
+<li>USRAT1: TX=PA9, RX=PA10</li>
+<li>Ввод/вывод интерфейса USART реализован через канал DMA</li>
+</ul>
+<p>Работа программы: При первоначальном запуске программы светодиод мигает в режиме 500мс включен, 500мс выключен. Можно изменять режим свечения светодиода нижеописанными командами.</p>
+<p>Реализовано:</p><ol type="1">
+<li>Команда "Blink X(ms) Y(ms)" - Задает режим свечения светодиода с заданным временем включения/выключения(X/Y).</li>
+<li>Команда "Fade X(ms)" - Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4.</li>
+<li>Команда "Stop" - Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается.</li>
+<li>Приглашение пользователк в консоле к выполнению команд с примерами.</li>
+<li>Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация.</li>
+<li>Создан git репозиторий и выгружен в удаленный репозиторий на GitHub(). Скорость Usart </li>
+</ol>
+
+</div>
+</div>
+<a id="af281425e62298bac2df0fbe8690a4844"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af281425e62298bac2df0fbe8690a4844">&#9670;&nbsp;</a></span>PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIOD&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a739a2a1a0047c98ac1b18ecd25dac092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739a2a1a0047c98ac1b18ecd25dac092">&#9670;&nbsp;</a></span>RX_BUFFER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RX_BUFFER_SIZE&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ab33647617098646990fe263600b650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab33647617098646990fe263600b650">&#9670;&nbsp;</a></span>TX_BUFFER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TX_BUFFER_SIZE&#160;&#160;&#160;128</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Функции</h2>
+<a id="aea2c4db5a3720489327d7a5cbf0cedc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea2c4db5a3720489327d7a5cbf0cedc2">&#9670;&nbsp;</a></span>blink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blink </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeOn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeOff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Задает режим свечения светодиода с заданным временем включения/выключения </p>
+
+</div>
+</div>
+<a id="a3974a02b903706928212b901e62125f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3974a02b903706928212b901e62125f6">&#9670;&nbsp;</a></span>fade()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void fade </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Задает режим плавного зажегания и затухания светодиода </p>
+
+</div>
+</div>
+<a id="af92e16b8081e002c83c30ea3059bd9dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92e16b8081e002c83c30ea3059bd9dc">&#9670;&nbsp;</a></span>initAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Инициализация всей периферии </p>
+
+</div>
+</div>
+<a id="afe461d27b9c48d5921c00d521181f12f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe461d27b9c48d5921c00d521181f12f">&#9670;&nbsp;</a></span>loop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void loop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вводит МК в режим зависания и через 10 сек. срабатывает таймер Watchdog(IWDG) и МК перезагружается. </p>
+
+</div>
+</div>
+<a id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae66f6b31b5ad750f1fe042a706a4e3d4">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ebf8a901f53a250071ff1db8995f2d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ebf8a901f53a250071ff1db8995f2d0">&#9670;&nbsp;</a></span>parseBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void parseBuffer </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Парсинг приянтого по USART массива данных </p>
+
+</div>
+</div>
+<a id="a7139cd4baabbbcbab0c1fe6d7d4ae1cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7139cd4baabbbcbab0c1fe6d7d4ae1cc">&#9670;&nbsp;</a></span>USART1_IRQHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void USART1_IRQHandler </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="a251354835068e7549fdc97118ae77dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251354835068e7549fdc97118ae77dfa">&#9670;&nbsp;</a></span>dma</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DMA_InitTypeDef dma</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a17be409d95593b3ff983cd52f7053856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17be409d95593b3ff983cd52f7053856">&#9670;&nbsp;</a></span>fadeFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t fadeFlag = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Флаг для режима Fade. </p>
+
+</div>
+</div>
+<a id="aec6e9ae1ccec2a3b356f0e817b6a386d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6e9ae1ccec2a3b356f0e817b6a386d">&#9670;&nbsp;</a></span>fadeTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t fadeTime = 10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Время плавного зажегания и затухания светодиода, используя Шим на Timer4. </p>
+
+</div>
+</div>
+<a id="af0658b49b677e42e55cc005f80c011f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0658b49b677e42e55cc005f80c011f2">&#9670;&nbsp;</a></span>nvic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NVIC_InitTypeDef nvic</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6d4fc85bb091aa2ce3d2c0c0f2c4302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6d4fc85bb091aa2ce3d2c0c0f2c4302">&#9670;&nbsp;</a></span>portA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPIO_InitTypeDef portA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a237a3d41534f4753470bb144d761f3a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a237a3d41534f4753470bb144d761f3a8">&#9670;&nbsp;</a></span>portB</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPIO_InitTypeDef portB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a52965a1c4f6d34e3a0afaa0133a8754e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52965a1c4f6d34e3a0afaa0133a8754e">&#9670;&nbsp;</a></span>rxBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char rxBuffer[<a class="el" href="main_8c.html#a739a2a1a0047c98ac1b18ecd25dac092">RX_BUFFER_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>RX буфер USART. </p>
+
+</div>
+</div>
+<a id="ab98e83e7f7f87cc85f707630dc708703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab98e83e7f7f87cc85f707630dc708703">&#9670;&nbsp;</a></span>rxFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t rxFlag = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Флаг что пришли данные по USART. </p>
+
+</div>
+</div>
+<a id="a3380e5e9a4c8096af96336fea3f92b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3380e5e9a4c8096af96336fea3f92b1b">&#9670;&nbsp;</a></span>TIM_Pulse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TIM_Pulse = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Значение ШИМ </p>
+
+</div>
+</div>
+<a id="a7889f4d558b0539240873a7c41a3d1ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7889f4d558b0539240873a7c41a3d1ab">&#9670;&nbsp;</a></span>time1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t time1 = 5000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Временя свечения светодиода </p>
+
+</div>
+</div>
+<a id="a03a3f0896a00fef03582fef9b48f978e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a3f0896a00fef03582fef9b48f978e">&#9670;&nbsp;</a></span>time2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t time2 = 5000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Время НЕ свечения светодиода </p>
+
+</div>
+</div>
+<a id="a88d009b20d08c8a821c4e2b160e960a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88d009b20d08c8a821c4e2b160e960a5">&#9670;&nbsp;</a></span>timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_TimeBaseInitTypeDef timer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accdeee591142c25efa533931fac28dfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accdeee591142c25efa533931fac28dfa">&#9670;&nbsp;</a></span>timerPWM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_OCInitTypeDef timerPWM</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b30a92e7c4a176e2f29d9102d9751a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b30a92e7c4a176e2f29d9102d9751a0">&#9670;&nbsp;</a></span>tmp1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp1[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вспомогательные массивы для парсинга основного входящего массива </p>
+
+</div>
+</div>
+<a id="adc791551c9d09221f1c21565dfce4f7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc791551c9d09221f1c21565dfce4f7c">&#9670;&nbsp;</a></span>tmp2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp2[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7e1b5b77a3532a50a07a09194055d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e1b5b77a3532a50a07a09194055d3b">&#9670;&nbsp;</a></span>tmp3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp3[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae583fa991719680e6199202b8e9c2fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae583fa991719680e6199202b8e9c2fd2">&#9670;&nbsp;</a></span>tmp4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp4[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad691a0d415853a7a2500332d7f2b48a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad691a0d415853a7a2500332d7f2b48a8">&#9670;&nbsp;</a></span>tmp5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp5[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a966ae3498f573763f29f14aca9e5eefc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966ae3498f573763f29f14aca9e5eefc">&#9670;&nbsp;</a></span>tmp6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char tmp6[32] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a83c1a2855e7499808c8d28370b7b90f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c1a2855e7499808c8d28370b7b90f5">&#9670;&nbsp;</a></span>txBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t txBuffer[128] = &quot;Hello, please enter Blink or PWM time in ms.:\nExamples:\n \&quot;blink 500 500\&quot;\n \&quot;fade 500\&quot;\n&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>TX буфер USART. </p>
+
+</div>
+</div>
+<a id="a354e0130142fc208580973362948fcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a354e0130142fc208580973362948fcbc">&#9670;&nbsp;</a></span>usart</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">USART_InitTypeDef usart</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97fcb0e1731b36905e90757f211b1340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97fcb0e1731b36905e90757f211b1340">&#9670;&nbsp;</a></span>x1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x1 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad660c90589efbb535c7d55dc032c1b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad660c90589efbb535c7d55dc032c1b09">&#9670;&nbsp;</a></span>x2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x2 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae067fb8a14696066b62593d8adf469cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae067fb8a14696066b62593d8adf469cd">&#9670;&nbsp;</a></span>x3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x3 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad8067db785a09b4566deb8d427b4b7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8067db785a09b4566deb8d427b4b7a0">&#9670;&nbsp;</a></span>x4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x4 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d5a341a216c953859a79c5394ee48f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d5a341a216c953859a79c5394ee48f7">&#9670;&nbsp;</a></span>x5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x5 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa757a3cd35f48b567f130d053e8726df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa757a3cd35f48b567f130d053e8726df">&#9670;&nbsp;</a></span>x6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int x6 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2a4bde7e1b01cf2f420295ee22cf94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2a4bde7e1b01cf2f420295ee22cf94f">&#9670;&nbsp;</a></span>y1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y1 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вспомогательные переменные для парсинга основного входящего массива </p>
+
+</div>
+</div>
+<a id="ab46d53655890336d982ec8600a4c5f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab46d53655890336d982ec8600a4c5f65">&#9670;&nbsp;</a></span>y2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y2 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f30cd571b8069087b6f2477bdfbc24a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f30cd571b8069087b6f2477bdfbc24a">&#9670;&nbsp;</a></span>y3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y3 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a028d192d7e544c837a59835942f67b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028d192d7e544c837a59835942f67b33">&#9670;&nbsp;</a></span>y4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y4 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a791b8034805ba82ebf90f67923070401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a791b8034805ba82ebf90f67923070401">&#9670;&nbsp;</a></span>y5</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y5 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e51e0a10fc995a2585ddcbd8da369d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e51e0a10fc995a2585ddcbd8da369d2">&#9670;&nbsp;</a></span>y6</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t y6 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

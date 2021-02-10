@@ -1,0 +1,354 @@
+.TH "D:/Projects/Stm32/IAR/testMorion/main.c" 3 "Ср 10 Фев 2021" "Version 1.0.0" "testMorion" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+D:/Projects/Stm32/IAR/testMorion/main.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stm32f10x\&.h'\fP
+.br
+\fC#include 'stm32f10x_dma\&.h'\fP
+.br
+\fC#include 'stm32f10x_gpio\&.h'\fP
+.br
+\fC#include 'stm32f10x_usart\&.h'\fP
+.br
+\fC#include 'stm32f10x_rcc\&.h'\fP
+.br
+\fC#include 'stm32f10x_tim\&.h'\fP
+.br
+\fC#include 'stm32f10x_iwdg\&.h'\fP
+.br
+\fC#include 'platform_config\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include 'misc\&.h'\fP
+.br
+
+.SS "Макросы"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBAUDRATE\fP   115200"
+.br
+.RI "Тестовое задание: testMorion\&. "
+.ti -1c
+.RI "#define \fBRX_BUFFER_SIZE\fP   32"
+.br
+.ti -1c
+.RI "#define \fBTX_BUFFER_SIZE\fP   128"
+.br
+.ti -1c
+.RI "#define \fBPERIOD\fP   1000"
+.br
+.in -1c
+.SS "Функции"
+
+.in +1c
+.ti -1c
+.RI "void \fBinitAll\fP ()"
+.br
+.RI "Инициализация всей периферии "
+.ti -1c
+.RI "void \fBblink\fP (uint32_t timeOn, uint32_t timeOff)"
+.br
+.RI "Задает режим свечения светодиода с заданным временем включения/выключения "
+.ti -1c
+.RI "void \fBfade\fP (uint32_t time)"
+.br
+.RI "Задает режим плавного зажегания и затухания светодиода "
+.ti -1c
+.RI "void \fBloop\fP ()"
+.br
+.RI "Вводит МК в режим зависания и через 10 сек\&. срабатывает таймер Watchdog(IWDG) и МК перезагружается\&. "
+.ti -1c
+.RI "void \fBparseBuffer\fP (char *buffer)"
+.br
+.RI "Парсинг приянтого по USART массива данных "
+.ti -1c
+.RI "int \fBmain\fP ()"
+.br
+.ti -1c
+.RI "void \fBUSART1_IRQHandler\fP (void)"
+.br
+.in -1c
+.SS "Переменные"
+
+.in +1c
+.ti -1c
+.RI "GPIO_InitTypeDef \fBportA\fP"
+.br
+.ti -1c
+.RI "GPIO_InitTypeDef \fBportB\fP"
+.br
+.ti -1c
+.RI "USART_InitTypeDef \fBusart\fP"
+.br
+.ti -1c
+.RI "DMA_InitTypeDef \fBdma\fP"
+.br
+.ti -1c
+.RI "NVIC_InitTypeDef \fBnvic\fP"
+.br
+.ti -1c
+.RI "TIM_TimeBaseInitTypeDef \fBtimer\fP"
+.br
+.ti -1c
+.RI "TIM_OCInitTypeDef \fBtimerPWM\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBtxBuffer\fP [128] = 'Hello, please enter Blink or PWM time in ms\&.:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n'"
+.br
+.RI "TX буфер USART\&. "
+.ti -1c
+.RI "char \fBrxBuffer\fP [\fBRX_BUFFER_SIZE\fP]"
+.br
+.RI "RX буфер USART\&. "
+.ti -1c
+.RI "uint32_t \fBtime1\fP = 5000000"
+.br
+.RI "Временя свечения светодиода "
+.ti -1c
+.RI "uint32_t \fBtime2\fP = 5000000"
+.br
+.RI "Время НЕ свечения светодиода "
+.ti -1c
+.RI "uint32_t \fBfadeTime\fP = 10000"
+.br
+.RI "Время плавного зажегания и затухания светодиода, используя Шим на Timer4\&. "
+.ti -1c
+.RI "uint8_t \fBfadeFlag\fP = 0"
+.br
+.RI "Флаг для режима Fade\&. "
+.ti -1c
+.RI "char \fBtmp1\fP [32] = {0}"
+.br
+.RI "Вспомогательные массивы для парсинга основного входящего массива "
+.ti -1c
+.RI "char \fBtmp2\fP [32] = {0}"
+.br
+.ti -1c
+.RI "char \fBtmp3\fP [32] = {0}"
+.br
+.ti -1c
+.RI "char \fBtmp4\fP [32] = {0}"
+.br
+.ti -1c
+.RI "char \fBtmp5\fP [32] = {0}"
+.br
+.ti -1c
+.RI "char \fBtmp6\fP [32] = {0}"
+.br
+.ti -1c
+.RI "uint8_t \fBy1\fP = 0"
+.br
+.RI "Вспомогательные переменные для парсинга основного входящего массива "
+.ti -1c
+.RI "uint8_t \fBy2\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBy3\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBy4\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBy5\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBy6\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx3\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx4\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx5\fP = 0"
+.br
+.ti -1c
+.RI "int \fBx6\fP = 0"
+.br
+.ti -1c
+.RI "uint8_t \fBrxFlag\fP = 0"
+.br
+.RI "Флаг что пришли данные по USART\&. "
+.ti -1c
+.RI "int \fBTIM_Pulse\fP = 0"
+.br
+.RI "Значение ШИМ "
+.in -1c
+.SH "Макросы"
+.PP 
+.SS "#define BAUDRATE   115200"
+
+.PP
+Тестовое задание: testMorion\&. 
+.PP
+\fBВерсия\fP
+.RS 4
+1\&.0\&.0
+.RE
+.PP
+Описание:
+.IP "\(bu" 2
+МК: STM32F103C8
+.IP "\(bu" 2
+Светодиод подключен к пину: PB6
+.IP "\(bu" 2
+USRAT1: TX=PA9, RX=PA10
+.IP "\(bu" 2
+Ввод/вывод интерфейса USART реализован через канал DMA
+.PP
+.PP
+Работа программы: При первоначальном запуске программы светодиод мигает в режиме 500мс включен, 500мс выключен\&. Можно изменять режим свечения светодиода нижеописанными командами\&.
+.PP
+Реализовано:
+.IP "1." 4
+Команда 'Blink X(ms) Y(ms)' - Задает режим свечения светодиода с заданным временем включения/выключения(X/Y)\&.
+.IP "2." 4
+Команда 'Fade X(ms)' - Задает режим плавного зажегания и затухания светодиода, используя Шим на Timer4\&.
+.IP "3." 4
+Команда 'Stop' - Вводит МК в режим зависания и через 10 сек\&. срабатывает таймер Watchdog(IWDG) и МК перезагружается\&.
+.IP "4." 4
+Приглашение пользователк в консоле к выполнению команд с примерами\&.
+.IP "5." 4
+Оформлены комментарии к коду в формате Doxygen и сгенерирована соответствующая документация\&.
+.IP "6." 4
+Создан git репозиторий и выгружен в удаленный репозиторий на GitHub()\&. Скорость Usart 
+.PP
+
+.SS "#define PERIOD   1000"
+
+.SS "#define RX_BUFFER_SIZE   32"
+
+.SS "#define TX_BUFFER_SIZE   128"
+
+.SH "Функции"
+.PP 
+.SS "void blink (uint32_t timeOn, uint32_t timeOff)"
+
+.PP
+Задает режим свечения светодиода с заданным временем включения/выключения 
+.SS "void fade (uint32_t time)"
+
+.PP
+Задает режим плавного зажегания и затухания светодиода 
+.SS "void initAll ()"
+
+.PP
+Инициализация всей периферии 
+.SS "void loop ()"
+
+.PP
+Вводит МК в режим зависания и через 10 сек\&. срабатывает таймер Watchdog(IWDG) и МК перезагружается\&. 
+.SS "int main ()"
+
+.SS "void parseBuffer (char * buffer)"
+
+.PP
+Парсинг приянтого по USART массива данных 
+.SS "void USART1_IRQHandler (void)"
+
+.SH "Переменные"
+.PP 
+.SS "DMA_InitTypeDef dma"
+
+.SS "uint8_t fadeFlag = 0"
+
+.PP
+Флаг для режима Fade\&. 
+.SS "uint32_t fadeTime = 10000"
+
+.PP
+Время плавного зажегания и затухания светодиода, используя Шим на Timer4\&. 
+.SS "NVIC_InitTypeDef nvic"
+
+.SS "GPIO_InitTypeDef portA"
+
+.SS "GPIO_InitTypeDef portB"
+
+.SS "char rxBuffer[\fBRX_BUFFER_SIZE\fP]"
+
+.PP
+RX буфер USART\&. 
+.SS "uint8_t rxFlag = 0"
+
+.PP
+Флаг что пришли данные по USART\&. 
+.SS "int TIM_Pulse = 0"
+
+.PP
+Значение ШИМ 
+.SS "uint32_t time1 = 5000000"
+
+.PP
+Временя свечения светодиода 
+.SS "uint32_t time2 = 5000000"
+
+.PP
+Время НЕ свечения светодиода 
+.SS "TIM_TimeBaseInitTypeDef timer"
+
+.SS "TIM_OCInitTypeDef timerPWM"
+
+.SS "char tmp1[32] = {0}"
+
+.PP
+Вспомогательные массивы для парсинга основного входящего массива 
+.SS "char tmp2[32] = {0}"
+
+.SS "char tmp3[32] = {0}"
+
+.SS "char tmp4[32] = {0}"
+
+.SS "char tmp5[32] = {0}"
+
+.SS "char tmp6[32] = {0}"
+
+.SS "uint8_t txBuffer[128] = 'Hello, please enter Blink or PWM time in ms\&.:\\nExamples:\\n \\'blink 500 500\\'\\n \\'fade 500\\'\\n'"
+
+.PP
+TX буфер USART\&. 
+.SS "USART_InitTypeDef usart"
+
+.SS "int x1 = 0"
+
+.SS "int x2 = 0"
+
+.SS "int x3 = 0"
+
+.SS "int x4 = 0"
+
+.SS "int x5 = 0"
+
+.SS "int x6 = 0"
+
+.SS "uint8_t y1 = 0"
+
+.PP
+Вспомогательные переменные для парсинга основного входящего массива 
+.SS "uint8_t y2 = 0"
+
+.SS "uint8_t y3 = 0"
+
+.SS "uint8_t y4 = 0"
+
+.SS "uint8_t y5 = 0"
+
+.SS "uint8_t y6 = 0"
+
+.SH "Автор"
+.PP 
+Автоматически создано Doxygen для testMorion из исходного текста\&.

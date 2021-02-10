@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="ru">
+  <compounddef id="dir_9af6705c4563e9c4fbf390083866e738" kind="dir">
+    <compoundname>D:/Projects/Stm32</compoundname>
+    <innerdir refid="dir_f80e9f2cab5001b319803c708f76b705">D:/Projects/Stm32/IAR</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="D:/Projects/Stm32/"/>
+  </compounddef>
+</doxygen>

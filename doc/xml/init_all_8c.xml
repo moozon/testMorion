@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="ru">
+  <compounddef id="init_all_8c" kind="file" language="C++">
+    <compoundname>initAll.c</compoundname>
+    <includes local="yes">stm32f10x.h</includes>
+    <includes local="yes">stm32f10x_dma.h</includes>
+    <includes local="yes">stm32f10x_gpio.h</includes>
+    <includes local="yes">stm32f10x_usart.h</includes>
+    <includes local="yes">stm32f10x_rcc.h</includes>
+    <includes local="yes">stm32f10x_tim.h</includes>
+    <includes local="yes">stm32f10x_iwdg.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>stm32f10x_usart.h</label>
+      </node>
+      <node id="1">
+        <label>D:/Projects/Stm32/IAR/testMorion/initAll.c</label>
+        <link refid="init_all_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stm32f10x_gpio.h</label>
+      </node>
+      <node id="2">
+        <label>stm32f10x.h</label>
+      </node>
+      <node id="6">
+        <label>stm32f10x_rcc.h</label>
+      </node>
+      <node id="7">
+        <label>stm32f10x_tim.h</label>
+      </node>
+      <node id="8">
+        <label>stm32f10x_iwdg.h</label>
+      </node>
+      <node id="3">
+        <label>stm32f10x_dma.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="init_all_8c_1af92e16b8081e002c83c30ea3059bd9dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initAll</definition>
+        <argsstring>()</argsstring>
+        <name>initAll</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="D:/Projects/Stm32/IAR/testMorion/initAll.c" line="10" column="6" bodyfile="D:/Projects/Stm32/IAR/testMorion/initAll.c" bodystart="10" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//#include<sp/>&quot;initAll.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_dma.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_gpio.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_usart.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_rcc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_tim.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;stm32f10x_iwdg.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_all_8c_1af92e16b8081e002c83c30ea3059bd9dc" kindref="member">initAll</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/>RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC,<sp/>ENABLE);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>Leds<sp/>mounted<sp/>on<sp/>STM32<sp/>board<sp/>*/</highlight><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/>DMA_StructInit(&amp;<ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>USART<sp/>DMA<sp/>TX<sp/>init<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>DMA_DeInit(DMA1_Channel4);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_PeripheralBaseAddr<sp/>=<sp/>(uint32_t)&amp;(USART1-&gt;DR);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_MemoryBaseAddr<sp/>=<sp/>(uint32_t)<ref refid="main_8c_1a83c1a2855e7499808c8d28370b7b90f5" kindref="member">txBuffer</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_BufferSize<sp/>=<sp/><ref refid="main_8c_1a9ab33647617098646990fe263600b650" kindref="member">TX_BUFFER_SIZE</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_DIR<sp/>=<sp/>DMA_DIR_PeripheralDST;<sp/><sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_PeripheralInc<sp/>=<sp/>DMA_PeripheralInc_Disable;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_MemoryInc<sp/>=<sp/>DMA_MemoryInc_Enable;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_PeripheralDataSize<sp/>=<sp/>DMA_PeripheralDataSize_Byte;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_MemoryDataSize<sp/>=<sp/>DMA_MemoryDataSize_Byte;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_Mode<sp/>=<sp/>DMA_Mode_Circular;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_Mode<sp/>=<sp/>DMA_Mode_Normal;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_M2M<sp/>=<sp/>DMA_M2M_Disable;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_Priority<sp/>=<sp/>DMA_Priority_High;<sp/><sp/></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>DMA_Init(DMA1_Channel4,<sp/>&amp;<ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>USART<sp/>DMA<sp/>RX<sp/>init<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>DMA_DeInit(DMA1_Channel5);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_PeripheralBaseAddr<sp/>=<sp/>(uint32_t)&amp;(USART1-&gt;DR);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_MemoryBaseAddr<sp/>=<sp/>(uint32_t)<ref refid="main_8c_1a52965a1c4f6d34e3a0afaa0133a8754e" kindref="member">rxBuffer</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_BufferSize<sp/>=<sp/><ref refid="main_8c_1a739a2a1a0047c98ac1b18ecd25dac092" kindref="member">RX_BUFFER_SIZE</ref>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_DIR<sp/>=<sp/>DMA_DIR_PeripheralSRC;<sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_PeripheralInc<sp/>=<sp/>DMA_PeripheralInc_Disable;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_MemoryInc<sp/>=<sp/>DMA_MemoryInc_Enable;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_PeripheralDataSize<sp/>=<sp/>DMA_PeripheralDataSize_HalfWord;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_MemoryDataSize<sp/>=<sp/>DMA_MemoryDataSize_HalfWord;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>.DMA_Mode<sp/>=<sp/>DMA_Mode_Circular;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_Mode<sp/>=<sp/>DMA_Mode_Normal;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_M2M<sp/>=<sp/>DMA_M2M_Disable;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//dma.DMA_Priority<sp/>=<sp/>DMA_Priority_High;<sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/>DMA_Init(DMA1_Channel5,<sp/>&amp;<ref refid="main_8c_1a251354835068e7549fdc97118ae77dfa" kindref="member">dma</ref>);<sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Initialize<sp/>LED<sp/>which<sp/>connected<sp/>to<sp/>PC13,<sp/>Enable<sp/>the<sp/>Clock*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Configure<sp/>the<sp/>GPIO_BUILTIN_LED<sp/>pin<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>GPIO_StructInit(&amp;portC);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>portC.GPIO_Pin<sp/>=<sp/>GPIO_Pin_13;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>portC.GPIO_Mode<sp/>=<sp/>GPIO_Mode_Out_PP;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>portC.GPIO_Speed<sp/>=<sp/>GPIO_Speed_50MHz;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>GPIO_Init(GPIOC,<sp/>&amp;portC);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/>GPIO_StructInit(&amp;<ref refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kindref="member">portB</ref>);<sp/><sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kindref="member">portB</ref>.GPIO_Mode<sp/>=<sp/>GPIO_Mode_Out_PP;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//portB.GPIO_Mode<sp/>=<sp/>GPIO_Mode_AF_PP;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kindref="member">portB</ref>.GPIO_Pin<sp/>=<sp/>GPIO_Pin_6;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kindref="member">portB</ref>.GPIO_Speed<sp/>=<sp/>GPIO_Speed_50MHz;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>GPIO_Init(GPIOB,<sp/>&amp;<ref refid="main_8c_1a237a3d41534f4753470bb144d761f3a8" kindref="member">portB</ref>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>.GPIO_Pin<sp/>=<sp/><ref refid="platform__config_8h_1a5147670644bd41a8956ff15796581877" kindref="member">USART1_TxPin</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>.GPIO_Speed<sp/>=<sp/>GPIO_Speed_50MHz;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>.GPIO_Mode<sp/>=<sp/>GPIO_Mode_AF_PP;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>GPIO_Init(<ref refid="platform__config_8h_1a3230b3339415eea9f2b338f5cd3057e5" kindref="member">USART1_GPIO</ref>,<sp/>&amp;<ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>.GPIO_Pin<sp/>=<sp/><ref refid="platform__config_8h_1a1bdc065f5032ba2eb2b10ea8e765dbe4" kindref="member">USART1_RxPin</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>.GPIO_Mode<sp/>=<sp/>GPIO_Mode_IN_FLOATING;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>GPIO_Init(<ref refid="platform__config_8h_1a3230b3339415eea9f2b338f5cd3057e5" kindref="member">USART1_GPIO</ref>,<sp/>&amp;<ref refid="main_8c_1af6d4fc85bb091aa2ce3d2c0c0f2c4302" kindref="member">portA</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>NVIC<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Enable<sp/>the<sp/>USARTz<sp/>Interrupt<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//NVIC_PriorityGroupConfig(NVIC_PriorityGroup_0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kindref="member">nvic</ref>.NVIC_IRQChannel<sp/>=<sp/>USART1_IRQn;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kindref="member">nvic</ref>.NVIC_IRQChannelPreemptionPriority<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kindref="member">nvic</ref>.NVIC_IRQChannelSubPriority<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kindref="member">nvic</ref>.NVIC_IRQChannelCmd<sp/>=<sp/>ENABLE;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>NVIC_Init(&amp;<ref refid="main_8c_1af0658b49b677e42e55cc005f80c011f2" kindref="member">nvic</ref>);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//NVIC_EnableIRQ(DMA1_Channel5_IRQn);<sp/>//Dma<sp/>interrupts<sp/>Enable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>USART<sp/>Interrupt<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>USART_StructInit(&amp;<ref refid="main_8c_1a354e0130142fc208580973362948fcbc" kindref="member">usart</ref>);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a354e0130142fc208580973362948fcbc" kindref="member">usart</ref>.USART_BaudRate<sp/>=<sp/><ref refid="main_8c_1a734bbab06e1a9fd2e5522db0221ff6e3" kindref="member">BAUDRATE</ref>;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a354e0130142fc208580973362948fcbc" kindref="member">usart</ref>.USART_Mode<sp/>=<sp/>USART_Mode_Rx<sp/>|<sp/>USART_Mode_Tx;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>USART_Init(USART1,<sp/>&amp;<ref refid="main_8c_1a354e0130142fc208580973362948fcbc" kindref="member">usart</ref>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>USART_ITConfig(USART1,<sp/>USART_IT_RXNE,<sp/>ENABLE);<sp/></highlight><highlight class="comment">//Usart<sp/>RXNE<sp/>interrupts<sp/>Enable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Timer<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/>TIM_TimeBaseStructInit(&amp;<ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>.TIM_Prescaler<sp/>=<sp/>720;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>.TIM_Period<sp/>=<sp/><ref refid="main_8c_1af281425e62298bac2df0fbe8690a4844" kindref="member">PERIOD</ref>;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>.TIM_ClockDivision<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>.TIM_CounterMode<sp/>=<sp/>TIM_CounterMode_Up;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>TIM_TimeBaseInit(TIM4,<sp/>&amp;<ref refid="main_8c_1a88d009b20d08c8a821c4e2b160e960a5" kindref="member">timer</ref>);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>TIM_OCStructInit(&amp;<ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>.TIM_OCMode<sp/>=<sp/>TIM_OCMode_PWM1;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>.TIM_OutputState<sp/>=<sp/>TIM_OutputState_Enable;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>.TIM_Pulse<sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>.TIM_OCPolarity<sp/>=<sp/>TIM_OCPolarity_High;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>TIM_OC1Init(TIM4,<sp/>&amp;<ref refid="main_8c_1accdeee591142c25efa533931fac28dfa" kindref="member">timerPWM</ref>);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>RCC_LSICmd(ENABLE);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(RCC_GetFlagStatus(RCC_FLAG_LSIRDY)<sp/>==<sp/>RESET);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>IWDG_WriteAccessCmd(IWDG_WriteAccess_Enable);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>IWDG_SetPrescaler(IWDG_Prescaler_256);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>IWDG_SetReload(1562);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>IWDG_ReloadCounter();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>IWDG_Enable();<sp/><sp/></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>USART_DMACmd(USART1,<sp/>USART_DMAReq_Tx<sp/>|<sp/>USART_DMAReq_Rx,<sp/>ENABLE);<sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>DMA_Cmd(DMA1_Channel4,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>DMA_ITConfig(DMA1_Channel5,<sp/>DMA_IT_TC,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>DMA_Cmd(DMA1_Channel5,<sp/>ENABLE);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>USART_Cmd(USART1,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>TIM_Cmd(TIM4,<sp/>ENABLE);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="D:/Projects/Stm32/IAR/testMorion/initAll.c"/>
+  </compounddef>
+</doxygen>
